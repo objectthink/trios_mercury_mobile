@@ -14,13 +14,45 @@
 		0124D3B3196F67CF00A8D731 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3B2196F67CF00A8D731 /* main.m */; };
 		0124D3B7196F67CF00A8D731 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3B6196F67CF00A8D731 /* AppDelegate.m */; };
 		0124D3BA196F67CF00A8D731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3B8196F67CF00A8D731 /* Main.storyboard */; };
-		0124D3BD196F67CF00A8D731 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3BC196F67CF00A8D731 /* ViewController.m */; };
 		0124D3BF196F67CF00A8D731 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3BE196F67CF00A8D731 /* Images.xcassets */; };
 		0124D3C6196F67CF00A8D731 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124D3C5196F67CF00A8D731 /* XCTest.framework */; };
 		0124D3C7196F67CF00A8D731 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124D3A6196F67CF00A8D731 /* Foundation.framework */; };
 		0124D3C8196F67CF00A8D731 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124D3AA196F67CF00A8D731 /* UIKit.framework */; };
 		0124D3D0196F67CF00A8D731 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3CE196F67CF00A8D731 /* InfoPlist.strings */; };
 		0124D3D2196F67CF00A8D731 /* TRIOS_MOBILE_DEMO_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3D1196F67CF00A8D731 /* TRIOS_MOBILE_DEMO_2Tests.m */; };
+		0124D3DD196F6CA700A8D731 /* TriosInstrumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3DC196F6CA700A8D731 /* TriosInstrumentCell.m */; };
+		0124D3E0196F6D4F00A8D731 /* TriosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D3DF196F6D4F00A8D731 /* TriosCollectionViewController.m */; };
+		0124D3F4196F707C00A8D731 /* ar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E2196F707C00A8D731 /* ar.png */; };
+		0124D3F5196F707C00A8D731 /* AR1500ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E3196F707C00A8D731 /* AR1500ex.png */; };
+		0124D3F6196F707C00A8D731 /* ar2000.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E4196F707C00A8D731 /* ar2000.png */; };
+		0124D3F7196F707C00A8D731 /* ares.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E5196F707C00A8D731 /* ares.png */; };
+		0124D3F8196F707C00A8D731 /* ARESG2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E6196F707C00A8D731 /* ARESG2.PNG */; };
+		0124D3F9196F707C00A8D731 /* ARESG21.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E7196F707C00A8D731 /* ARESG21.PNG */; };
+		0124D3FA196F707C00A8D731 /* arg2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E8196F707C00A8D731 /* arg2.gif */; };
+		0124D3FB196F707C00A8D731 /* BricoPack Wallpaper.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3E9196F707C00A8D731 /* BricoPack Wallpaper.bmp */; };
+		0124D3FC196F707C00A8D731 /* dhr.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3EA196F707C00A8D731 /* dhr.png */; };
+		0124D3FD196F707C00A8D731 /* disc_dsc.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3EB196F707C00A8D731 /* disc_dsc.png */; };
+		0124D3FE196F707C00A8D731 /* Glass (g).png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3EC196F707C00A8D731 /* Glass (g).png */; };
+		0124D3FF196F707C00A8D731 /* Glass (i).png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3ED196F707C00A8D731 /* Glass (i).png */; };
+		0124D400196F707C00A8D731 /* Glass (r).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3EE196F707C00A8D731 /* Glass (r).PNG */; };
+		0124D401196F707C00A8D731 /* Glass (s).png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3EF196F707C00A8D731 /* Glass (s).png */; };
+		0124D402196F707C00A8D731 /* GlassUsed.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F0196F707C00A8D731 /* GlassUsed.PNG */; };
+		0124D403196F707C00A8D731 /* MERCURYDSC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F1196F707C00A8D731 /* MERCURYDSC.png */; };
+		0124D404196F707C00A8D731 /* NGTGA.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F2196F707C00A8D731 /* NGTGA.png */; };
+		0124D405196F707C00A8D731 /* rsa.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F3196F707C00A8D731 /* rsa.png */; };
+		0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D407196F7DC700A8D731 /* MainMenuViewController.m */; };
+		0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D419196F8C1C00A8D731 /* MethodsViewController.m */; };
+		01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */; };
+		0192DA8B1970C99100A073F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8A1970C99100A073F0 /* home.png */; };
+		0192DA8F1970CA0700A073F0 /* signals.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8E1970CA0700A073F0 /* signals.png */; };
+		0192DA911970CA3D00A073F0 /* utilities.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA901970CA3D00A073F0 /* utilities.png */; };
+		0192DA931970CA6200A073F0 /* as.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA921970CA6200A073F0 /* as.png */; };
+		0192DA951970CA8000A073F0 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA941970CA8000A073F0 /* info.png */; };
+		0192DA971970CABC00A073F0 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA961970CABC00A073F0 /* settings.png */; };
+		7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38419717F9B00D90E11 /* MercuryInstrument.m */; };
+		7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F3871971804A00D90E11 /* MercuryProcedure.m */; };
+		7302F38B1971976300D90E11 /* SignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38A1971976300D90E11 /* SignalViewController.m */; };
+		A19A0F5EC0AD4002B06DE4A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E846662B5944999CBF1AE3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +77,54 @@
 		0124D3B5196F67CF00A8D731 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0124D3B6196F67CF00A8D731 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0124D3B9196F67CF00A8D731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0124D3BB196F67CF00A8D731 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0124D3BC196F67CF00A8D731 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0124D3BE196F67CF00A8D731 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0124D3C4196F67CF00A8D731 /* TRIOS-MOBILE-DEMO-2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TRIOS-MOBILE-DEMO-2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0124D3C5196F67CF00A8D731 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0124D3CD196F67CF00A8D731 /* TRIOS-MOBILE-DEMO-2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRIOS-MOBILE-DEMO-2Tests-Info.plist"; sourceTree = "<group>"; };
 		0124D3CF196F67CF00A8D731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0124D3D1196F67CF00A8D731 /* TRIOS_MOBILE_DEMO_2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRIOS_MOBILE_DEMO_2Tests.m; sourceTree = "<group>"; };
+		0124D3DB196F6CA700A8D731 /* TriosInstrumentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriosInstrumentCell.h; sourceTree = "<group>"; };
+		0124D3DC196F6CA700A8D731 /* TriosInstrumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriosInstrumentCell.m; sourceTree = "<group>"; };
+		0124D3DE196F6D4F00A8D731 /* TriosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriosCollectionViewController.h; path = ../TriosCollectionViewController.h; sourceTree = "<group>"; };
+		0124D3DF196F6D4F00A8D731 /* TriosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriosCollectionViewController.m; path = ../TriosCollectionViewController.m; sourceTree = "<group>"; };
+		0124D3E2196F707C00A8D731 /* ar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ar.png; sourceTree = "<group>"; };
+		0124D3E3196F707C00A8D731 /* AR1500ex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AR1500ex.png; sourceTree = "<group>"; };
+		0124D3E4196F707C00A8D731 /* ar2000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ar2000.png; sourceTree = "<group>"; };
+		0124D3E5196F707C00A8D731 /* ares.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ares.png; sourceTree = "<group>"; };
+		0124D3E6196F707C00A8D731 /* ARESG2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ARESG2.PNG; sourceTree = "<group>"; };
+		0124D3E7196F707C00A8D731 /* ARESG21.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ARESG21.PNG; sourceTree = "<group>"; };
+		0124D3E8196F707C00A8D731 /* arg2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arg2.gif; sourceTree = "<group>"; };
+		0124D3E9196F707C00A8D731 /* BricoPack Wallpaper.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "BricoPack Wallpaper.bmp"; sourceTree = "<group>"; };
+		0124D3EA196F707C00A8D731 /* dhr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dhr.png; sourceTree = "<group>"; };
+		0124D3EB196F707C00A8D731 /* disc_dsc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disc_dsc.png; sourceTree = "<group>"; };
+		0124D3EC196F707C00A8D731 /* Glass (g).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glass (g).png"; sourceTree = "<group>"; };
+		0124D3ED196F707C00A8D731 /* Glass (i).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glass (i).png"; sourceTree = "<group>"; };
+		0124D3EE196F707C00A8D731 /* Glass (r).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glass (r).PNG"; sourceTree = "<group>"; };
+		0124D3EF196F707C00A8D731 /* Glass (s).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glass (s).png"; sourceTree = "<group>"; };
+		0124D3F0196F707C00A8D731 /* GlassUsed.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GlassUsed.PNG; sourceTree = "<group>"; };
+		0124D3F1196F707C00A8D731 /* MERCURYDSC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MERCURYDSC.png; sourceTree = "<group>"; };
+		0124D3F2196F707C00A8D731 /* NGTGA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NGTGA.png; sourceTree = "<group>"; };
+		0124D3F3196F707C00A8D731 /* rsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsa.png; sourceTree = "<group>"; };
+		0124D406196F7DC700A8D731 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		0124D407196F7DC700A8D731 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		0124D418196F8C1C00A8D731 /* MethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodsViewController.h; sourceTree = "<group>"; };
+		0124D419196F8C1C00A8D731 /* MethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodsViewController.m; sourceTree = "<group>"; };
+		01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPopoverViewController.h; sourceTree = "<group>"; };
+		01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectPopoverViewController.m; sourceTree = "<group>"; };
+		0192DA8A1970C99100A073F0 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		0192DA8E1970CA0700A073F0 /* signals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signals.png; sourceTree = "<group>"; };
+		0192DA901970CA3D00A073F0 /* utilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = utilities.png; sourceTree = "<group>"; };
+		0192DA921970CA6200A073F0 /* as.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as.png; sourceTree = "<group>"; };
+		0192DA941970CA8000A073F0 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		0192DA961970CABC00A073F0 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		31E846662B5944999CBF1AE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7302F38319717F9B00D90E11 /* MercuryInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryInstrument.h; sourceTree = "<group>"; };
+		7302F38419717F9B00D90E11 /* MercuryInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryInstrument.m; sourceTree = "<group>"; };
+		7302F3861971804A00D90E11 /* MercuryProcedure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryProcedure.h; sourceTree = "<group>"; };
+		7302F3871971804A00D90E11 /* MercuryProcedure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryProcedure.m; sourceTree = "<group>"; };
+		7302F3891971976300D90E11 /* SignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalViewController.h; sourceTree = "<group>"; };
+		7302F38A1971976300D90E11 /* SignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalViewController.m; sourceTree = "<group>"; };
+		E8763BFB3E154ADC88302E91 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +135,7 @@
 				0124D3A9196F67CF00A8D731 /* CoreGraphics.framework in Frameworks */,
 				0124D3AB196F67CF00A8D731 /* UIKit.framework in Frameworks */,
 				0124D3A7196F67CF00A8D731 /* Foundation.framework in Frameworks */,
+				A19A0F5EC0AD4002B06DE4A3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +159,7 @@
 				0124D3CB196F67CF00A8D731 /* TRIOS-MOBILE-DEMO-2Tests */,
 				0124D3A5196F67CF00A8D731 /* Frameworks */,
 				0124D3A4196F67CF00A8D731 /* Products */,
+				E8763BFB3E154ADC88302E91 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +179,7 @@
 				0124D3A8196F67CF00A8D731 /* CoreGraphics.framework */,
 				0124D3AA196F67CF00A8D731 /* UIKit.framework */,
 				0124D3C5196F67CF00A8D731 /* XCTest.framework */,
+				31E846662B5944999CBF1AE3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +187,23 @@
 		0124D3AC196F67CF00A8D731 /* TRIOS-MOBILE-DEMO-2 */ = {
 			isa = PBXGroup;
 			children = (
+				7302F38219717F8400D90E11 /* Mercury */,
+				0124D3E1196F6F3200A8D731 /* Resources */,
+				0124D3B8196F67CF00A8D731 /* Main.storyboard */,
 				0124D3B5196F67CF00A8D731 /* AppDelegate.h */,
 				0124D3B6196F67CF00A8D731 /* AppDelegate.m */,
-				0124D3B8196F67CF00A8D731 /* Main.storyboard */,
-				0124D3BB196F67CF00A8D731 /* ViewController.h */,
-				0124D3BC196F67CF00A8D731 /* ViewController.m */,
+				7302F3891971976300D90E11 /* SignalViewController.h */,
+				7302F38A1971976300D90E11 /* SignalViewController.m */,
+				01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */,
+				01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */,
+				0124D3DE196F6D4F00A8D731 /* TriosCollectionViewController.h */,
+				0124D3DF196F6D4F00A8D731 /* TriosCollectionViewController.m */,
+				0124D3DB196F6CA700A8D731 /* TriosInstrumentCell.h */,
+				0124D3DC196F6CA700A8D731 /* TriosInstrumentCell.m */,
+				0124D406196F7DC700A8D731 /* MainMenuViewController.h */,
+				0124D407196F7DC700A8D731 /* MainMenuViewController.m */,
+				0124D418196F8C1C00A8D731 /* MethodsViewController.h */,
+				0124D419196F8C1C00A8D731 /* MethodsViewController.m */,
 				0124D3BE196F67CF00A8D731 /* Images.xcassets */,
 				0124D3AD196F67CF00A8D731 /* Supporting Files */,
 			);
@@ -152,6 +239,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0124D3E1196F6F3200A8D731 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0124D40B196F7E2E00A8D731 /* Instruments */,
+				0124D409196F7E0C00A8D731 /* Buttons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0124D409196F7E0C00A8D731 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0192DA961970CABC00A073F0 /* settings.png */,
+				0192DA941970CA8000A073F0 /* info.png */,
+				0192DA921970CA6200A073F0 /* as.png */,
+				0192DA901970CA3D00A073F0 /* utilities.png */,
+				0192DA8E1970CA0700A073F0 /* signals.png */,
+				0192DA8A1970C99100A073F0 /* home.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		0124D40B196F7E2E00A8D731 /* Instruments */ = {
+			isa = PBXGroup;
+			children = (
+				0124D3E2196F707C00A8D731 /* ar.png */,
+				0124D3E3196F707C00A8D731 /* AR1500ex.png */,
+				0124D3E4196F707C00A8D731 /* ar2000.png */,
+				0124D3E5196F707C00A8D731 /* ares.png */,
+				0124D3E6196F707C00A8D731 /* ARESG2.PNG */,
+				0124D3E7196F707C00A8D731 /* ARESG21.PNG */,
+				0124D3E8196F707C00A8D731 /* arg2.gif */,
+				0124D3E9196F707C00A8D731 /* BricoPack Wallpaper.bmp */,
+				0124D3EA196F707C00A8D731 /* dhr.png */,
+				0124D3EB196F707C00A8D731 /* disc_dsc.png */,
+				0124D3EC196F707C00A8D731 /* Glass (g).png */,
+				0124D3ED196F707C00A8D731 /* Glass (i).png */,
+				0124D3EE196F707C00A8D731 /* Glass (r).PNG */,
+				0124D3EF196F707C00A8D731 /* Glass (s).png */,
+				0124D3F0196F707C00A8D731 /* GlassUsed.PNG */,
+				0124D3F1196F707C00A8D731 /* MERCURYDSC.png */,
+				0124D3F2196F707C00A8D731 /* NGTGA.png */,
+				0124D3F3196F707C00A8D731 /* rsa.png */,
+			);
+			name = Instruments;
+			sourceTree = "<group>";
+		};
+		7302F38219717F8400D90E11 /* Mercury */ = {
+			isa = PBXGroup;
+			children = (
+				7302F38319717F9B00D90E11 /* MercuryInstrument.h */,
+				7302F38419717F9B00D90E11 /* MercuryInstrument.m */,
+				7302F3861971804A00D90E11 /* MercuryProcedure.h */,
+				7302F3871971804A00D90E11 /* MercuryProcedure.m */,
+			);
+			name = Mercury;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0124D3D5196F67CF00A8D731 /* Build configuration list for PBXNativeTarget "TRIOS-MOBILE-DEMO-2" */;
 			buildPhases = (
+				756FB354196C49568E2DFC5A /* Check Pods Manifest.lock */,
 				0124D39F196F67CF00A8D731 /* Sources */,
 				0124D3A0196F67CF00A8D731 /* Frameworks */,
 				0124D3A1196F67CF00A8D731 /* Resources */,
+				FE3EA1B21BF24FE58A0153FD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,9 +375,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0124D405196F707C00A8D731 /* rsa.png in Resources */,
+				0124D3FC196F707C00A8D731 /* dhr.png in Resources */,
+				0192DA951970CA8000A073F0 /* info.png in Resources */,
+				0124D402196F707C00A8D731 /* GlassUsed.PNG in Resources */,
+				0124D3F4196F707C00A8D731 /* ar.png in Resources */,
+				0124D3F8196F707C00A8D731 /* ARESG2.PNG in Resources */,
+				0124D3FA196F707C00A8D731 /* arg2.gif in Resources */,
+				0192DA8B1970C99100A073F0 /* home.png in Resources */,
 				0124D3BF196F67CF00A8D731 /* Images.xcassets in Resources */,
+				0192DA911970CA3D00A073F0 /* utilities.png in Resources */,
+				0124D3F7196F707C00A8D731 /* ares.png in Resources */,
+				0124D3F6196F707C00A8D731 /* ar2000.png in Resources */,
 				0124D3B1196F67CF00A8D731 /* InfoPlist.strings in Resources */,
+				0124D3FD196F707C00A8D731 /* disc_dsc.png in Resources */,
+				0192DA931970CA6200A073F0 /* as.png in Resources */,
+				0124D401196F707C00A8D731 /* Glass (s).png in Resources */,
+				0124D3F5196F707C00A8D731 /* AR1500ex.png in Resources */,
+				0124D3FB196F707C00A8D731 /* BricoPack Wallpaper.bmp in Resources */,
+				0124D404196F707C00A8D731 /* NGTGA.png in Resources */,
+				0192DA971970CABC00A073F0 /* settings.png in Resources */,
 				0124D3BA196F67CF00A8D731 /* Main.storyboard in Resources */,
+				0124D403196F707C00A8D731 /* MERCURYDSC.png in Resources */,
+				0124D3FE196F707C00A8D731 /* Glass (g).png in Resources */,
+				0124D400196F707C00A8D731 /* Glass (r).PNG in Resources */,
+				0124D3FF196F707C00A8D731 /* Glass (i).png in Resources */,
+				0124D3F9196F707C00A8D731 /* ARESG21.PNG in Resources */,
+				0192DA8F1970CA0700A073F0 /* signals.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +415,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		756FB354196C49568E2DFC5A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE3EA1B21BF24FE58A0153FD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0124D39F196F67CF00A8D731 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0124D3BD196F67CF00A8D731 /* ViewController.m in Sources */,
+				7302F38B1971976300D90E11 /* SignalViewController.m in Sources */,
 				0124D3B7196F67CF00A8D731 /* AppDelegate.m in Sources */,
+				0124D3DD196F6CA700A8D731 /* TriosInstrumentCell.m in Sources */,
+				0124D3E0196F6D4F00A8D731 /* TriosCollectionViewController.m in Sources */,
+				0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */,
+				01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */,
 				0124D3B3196F67CF00A8D731 /* main.m in Sources */,
+				7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */,
+				0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */,
+				7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +586,7 @@
 		};
 		0124D3D6196F67CF00A8D731 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8763BFB3E154ADC88302E91 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -388,6 +600,7 @@
 		};
 		0124D3D7196F67CF00A8D731 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8763BFB3E154ADC88302E91 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -458,6 +671,7 @@
 				0124D3D7196F67CF00A8D731 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0124D3D8196F67CF00A8D731 /* Build configuration list for PBXNativeTarget "TRIOS-MOBILE-DEMO-2Tests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +680,7 @@
 				0124D3DA196F67CF00A8D731 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

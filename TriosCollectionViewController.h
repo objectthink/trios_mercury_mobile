@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  TriosCollectionViewController.h
 //  TRIOS-MOBILE-DEMO-2
 //
 //  Created by stephen eshelman on 7/10/14.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MercuryInstrument.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) MercuryInstrument* instrument;
+@interface TriosCollectionViewController : UICollectionViewController <MercuryInstrumentDelegate>
 
 @end

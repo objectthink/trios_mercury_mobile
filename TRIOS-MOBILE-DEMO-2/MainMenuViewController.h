@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainMenuViewController.h
 //  TRIOS-MOBILE-DEMO-2
 //
 //  Created by stephen eshelman on 7/10/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainMenuViewController : UIViewController
 
 @end
