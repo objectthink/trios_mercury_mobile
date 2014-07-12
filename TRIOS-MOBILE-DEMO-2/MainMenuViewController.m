@@ -66,7 +66,7 @@
                           reset,
                           nil]];
    
-   self.title = @"Trios Main Menu";
+   self.title = @"Trios Main Menu [10.52.51.32] VIEWER";
 }
 
 -(void)noAction

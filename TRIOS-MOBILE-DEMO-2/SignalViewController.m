@@ -7,12 +7,63 @@
 //
 
 #import "SignalViewController.h"
+#import "AppDelegate.h"
+#import "MercuryProcedure.h"
 
 @interface SignalViewController ()
 
 @end
 
 @implementation SignalViewController
+{
+   AppDelegate* _app;
+   MercuryInstrument* _instrument;
+   MercurySetRealTimeSignalsCommand* _command;
+   NSMutableArray* _signalsList;
+   NSMutableArray* _signals;
+   
+   IBOutlet UITableView *_signalTableView;
+}
+
+-(NSInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
+{
+   return [_signalsList count];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView
+       cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+   
+   if (cell == nil)
+   {
+      cell = [[UITableViewCell alloc]
+              initWithStyle:UITableViewCellStyleValue1
+              reuseIdentifier:@"MyIdentifier"];
+      
+      cell.backgroundColor = [UIColor clearColor];
+   }
+   
+   //create a set procedure for now to get signal string name
+   MercuryGetProcedureResponse* procedure =
+   [[MercuryGetProcedureResponse alloc] init];
+   
+   cell.selectionStyle = UITableViewCellSelectionStyleNone;
+   
+   cell.textLabel.text =
+   [procedure signalToString:[[_signalsList objectAtIndex:indexPath.row] intValue]];
+   
+   cell.detailTextLabel.text =
+   [NSString stringWithFormat:@"%@",
+    [_signals objectAtIndex:indexPath.row]
+    ];
+   
+   cell.textLabel.textColor = [UIColor whiteColor];
+   cell.detailTextLabel.textColor = [UIColor blueColor];
+   
+   return cell;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,6 +123,58 @@
                           nil]];
    
    self.title = @"Real Time Signals";
+   
+   _app = [[UIApplication sharedApplication] delegate];
+   _instrument = [_app instrument];
+   
+   _signalsList = [[NSMutableArray alloc] init];
+   _signals     = [[NSMutableArray alloc] init];
+   
+   [_instrument addDelegate:self];
+   
+   //get the current list of signals
+   [_instrument sendCommand:[[MercuryGetRealTimeSignalsCommand alloc]init]];
+}
+
+-(void)stat:(NSData*)message withSubcommand:(uint)subcommand
+{
+   if(subcommand == 0x00020002)
+   {
+      [_signals removeAllObjects];
+      
+      long signalCount = [message length]/4;
+      for (int i = 1; i < signalCount -1; i++)
+      {
+         float signal = [_instrument floatAtOffset:i*4 inData:message];
+         [_signals addObject:[NSNumber numberWithFloat:signal]];
+      }
+      
+      [_signalTableView reloadData];
+   }
+}
+
+-(void)response:(NSData *)message withSequenceNumber:(uint)sequenceNumber subcommand:(uint)subcommand status:(uint)status
+{
+   NSLog(@"response:%d %d %d", sequenceNumber, subcommand, status);
+   
+   //get response
+   if(subcommand == 0x00000008)
+   {
+      [_signalsList removeAllObjects];
+      
+      long signalCount = [message length]/4;
+      for (int i =0; i < signalCount; i++)
+      {
+         uint signal = [_instrument uintAtOffset:i*4 inData:message];
+         [_signalsList addObject:[NSNumber numberWithInt:signal]];
+      }
+   }
+   
+   //set response, do get
+   if(subcommand == 0x0001000A)
+   {
+      [_instrument sendCommand:[[MercuryGetRealTimeSignalsCommand alloc]init]];
+   }
 }
 
 - (void)didReceiveMemoryWarning

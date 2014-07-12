@@ -8,6 +8,6 @@
 
 #import "MercuryInstrument.h"
 
-@interface SignalViewController : MercuryViewControllerAdapter
+@interface SignalViewController : MercuryViewControllerAdapter <UITableViewDataSource, UITableViewDelegate>
 
 @end
