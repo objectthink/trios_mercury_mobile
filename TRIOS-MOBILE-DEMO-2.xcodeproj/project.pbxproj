@@ -42,6 +42,7 @@
 		0124D405196F707C00A8D731 /* rsa.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F3196F707C00A8D731 /* rsa.png */; };
 		0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D407196F7DC700A8D731 /* MainMenuViewController.m */; };
 		0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D419196F8C1C00A8D731 /* MethodsViewController.m */; };
+		0170FB211971A0210077F2A7 /* SignalChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */; };
 		01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */; };
 		0192DA8B1970C99100A073F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8A1970C99100A073F0 /* home.png */; };
 		0192DA8F1970CA0700A073F0 /* signals.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8E1970CA0700A073F0 /* signals.png */; };
@@ -109,6 +110,8 @@
 		0124D407196F7DC700A8D731 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		0124D418196F8C1C00A8D731 /* MethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodsViewController.h; sourceTree = "<group>"; };
 		0124D419196F8C1C00A8D731 /* MethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodsViewController.m; sourceTree = "<group>"; };
+		0170FB1F1971A0210077F2A7 /* SignalChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalChoiceViewController.h; sourceTree = "<group>"; };
+		0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalChoiceViewController.m; sourceTree = "<group>"; };
 		01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPopoverViewController.h; sourceTree = "<group>"; };
 		01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectPopoverViewController.m; sourceTree = "<group>"; };
 		0192DA8A1970C99100A073F0 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				0124D3B8196F67CF00A8D731 /* Main.storyboard */,
 				0124D3B5196F67CF00A8D731 /* AppDelegate.h */,
 				0124D3B6196F67CF00A8D731 /* AppDelegate.m */,
+				0170FB1F1971A0210077F2A7 /* SignalChoiceViewController.h */,
+				0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */,
 				7302F3891971976300D90E11 /* SignalViewController.h */,
 				7302F38A1971976300D90E11 /* SignalViewController.m */,
 				01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */,
@@ -453,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0170FB211971A0210077F2A7 /* SignalChoiceViewController.m in Sources */,
 				7302F38B1971976300D90E11 /* SignalViewController.m in Sources */,
 				0124D3B7196F67CF00A8D731 /* AppDelegate.m in Sources */,
 				0124D3DD196F6CA700A8D731 /* TriosInstrumentCell.m in Sources */,

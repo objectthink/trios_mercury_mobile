@@ -9,6 +9,7 @@
 #import "SignalViewController.h"
 #import "AppDelegate.h"
 #import "MercuryProcedure.h"
+#import "SignalChoiceViewController.h"
 
 @interface SignalViewController ()
 
@@ -23,6 +24,27 @@
    NSMutableArray* _signals;
    
    IBOutlet UITableView *_signalTableView;
+   
+   UIPopoverController* _signalChoiceListPopover;
+}
+
+- (IBAction)signalsButtonTapped:(id)sender
+{
+   CGRect frame = CGRectMake(450, 500, 10, 10);
+
+   CGRect rect = [_signalTableView convertRect:frame toView:self.view];
+   
+   SignalChoiceViewController* c =
+   [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+    instantiateViewControllerWithIdentifier:@"SignalChoiceViewController"];
+   
+   _signalChoiceListPopover =
+   [[UIPopoverController alloc] initWithContentViewController:c];
+   
+   [_signalChoiceListPopover presentPopoverFromRect:rect
+                                             inView:self.view
+                           permittedArrowDirections:UIPopoverArrowDirectionDown
+                                           animated:YES];
 }
 
 -(NSInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section

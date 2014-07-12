@@ -195,6 +195,9 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signalsButtonTapped:" destination="Lx1-yB-Pb3" eventType="touchUpInside" id="fuU-tJ-CxQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-w5-bGY">
                                 <rect key="frame" x="820" y="522" width="171" height="184"/>
@@ -240,6 +243,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn9-kb-WKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1977" y="904"/>
+        </scene>
+        <!--Signal Choice View Controller-->
+        <scene sceneID="Maw-Fb-PcZ">
+            <objects>
+                <viewController storyboardIdentifier="SignalChoiceViewController" id="S8s-6Z-fVq" customClass="SignalChoiceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e0V-gR-rsN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hgs-d5-NVY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5aG-2e-3HS">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-7Q-Yy2">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="S8s-6Z-fVq" id="ZAu-TQ-cgr"/>
+                                    <outlet property="delegate" destination="S8s-6Z-fVq" id="ygl-PP-bBZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="500" height="500"/>
+                    <connections>
+                        <outlet property="_tableView" destination="O8d-7Q-Yy2" id="2mi-zV-dea"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiz-oX-Xq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3044" y="904"/>
         </scene>
         <!--Methods View Controller-->
         <scene sceneID="Np1-1u-Vcl">
