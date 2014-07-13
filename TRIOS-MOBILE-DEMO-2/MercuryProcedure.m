@@ -106,6 +106,18 @@ static int uniqueTagStatic = 0;
    float _equilibrateTemperature;
 }
 
+-(instancetype)initWithBytes:(const void *)bytes
+{
+   if(self = [super init])
+   {
+      _segmentId  = 0x01030001;
+      _equilibrateTemperature = [self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:16]];
+   }
+   
+   return self;
+}
+
+
 -(instancetype)initWithTemperature:(float)equilibrateTemperature
 {
    if(self = [super init])
@@ -149,6 +161,18 @@ static int uniqueTagStatic = 0;
 {
    float _degreesPerMinute;
    float _finalTemperature;
+}
+
+-(instancetype)initWithBytes:(const void *)bytes
+{
+   if(self = [super init])
+   {
+      _segmentId  = 0x01030002;
+      _degreesPerMinute = [self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:20]];
+      _finalTemperature = [self floatAtOffset:16 inData:[[NSData alloc] initWithBytes:bytes length:20]];
+   }
+   
+   return self;
 }
 
 -(instancetype)initWithDegreesPerMinute:(float)degreesPerMinute
@@ -198,6 +222,17 @@ static int uniqueTagStatic = 0;
    BOOL _on;
 }
 
+-(instancetype)initWithBytes:(const void *)bytes
+{
+   if(self = [super init])
+   {
+      _segmentId  = DataOn;
+      _on = (BOOL)[self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:16]];
+   }
+   
+   return self;
+}
+
 -(instancetype)initWithBool:(BOOL)on
 {
    if(self = [super init])
@@ -241,6 +276,18 @@ static int uniqueTagStatic = 0;
 {
    uint _repeatIndex;
    uint _count;
+}
+
+-(instancetype)initWithBytes:(const void *)bytes
+{
+   if(self = [super init])
+   {
+      _segmentId  = Repeat;
+      _repeatIndex = [self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:20]];
+      _count = [self floatAtOffset:16 inData:[[NSData alloc] initWithBytes:bytes length:20]];
+   }
+   
+   return self;
 }
 
 -(instancetype)initWithRepeatIndex:(uint)index count:(uint)count
@@ -444,7 +491,7 @@ static int uniqueTagStatic = 0;
                break;
             case Equilibrate:
                segment =
-               [[SegmentEquilibrate alloc]initWithTemperature:40];
+               [[SegmentEquilibrate alloc]initWithBytes:message.bytes + segmentSectionIndex + segmentRunLegnth];
                break;
             case DataOn:
                break;

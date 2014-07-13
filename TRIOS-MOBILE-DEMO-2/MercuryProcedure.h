@@ -312,12 +312,14 @@ typedef enum SegmentIds
 @end
 
 @interface SegmentEquilibrate : MercurySegment
+-(instancetype)initWithBytes:(const void*)bytes;
 -(instancetype)initWithTemperature:(float)equilibrateTemperature;
 -(instancetype)copyWithZone:(NSZone *)zone;
 @property float equilibrateTemperature;
 @end
 
 @interface SegmentRamp : MercurySegment
+-(instancetype)initWithBytes:(const void*)bytes;
 -(instancetype)initWithDegreesPerMinute:(float)degreesPerMinute
                         finalTemerature:(float)finalTemperature;
 -(instancetype)copyWithZone:(NSZone *)zone;
@@ -326,12 +328,14 @@ typedef enum SegmentIds
 @end
 
 @interface SegmentDataOn : MercurySegment
+-(instancetype)initWithBytes:(const void*)bytes;
 -(instancetype)initWithBool:(BOOL)on;
 -(instancetype)copyWithZone:(NSZone *)zone;
 @property BOOL on;
 @end
 
 @interface SegmentRepeat : MercurySegment
+-(instancetype)initWithBytes:(const void*)bytes;
 -(instancetype)initWithRepeatIndex:(uint)index count:(uint)count;
 -(instancetype)copyWithZone:(NSZone *)zone;
 @property uint repeatIndex;
