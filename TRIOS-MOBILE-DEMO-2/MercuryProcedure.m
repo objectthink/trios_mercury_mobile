@@ -430,15 +430,21 @@ static int uniqueTagStatic = 0;
       while (segmentSectionIndex + segmentRunLegnth < [message length])
       {
          MercurySegment* segment;
-         uint segmentId = [self uintAtOffset:segmentSectionIndex + 4 inData:message];
+         uint segmentId =
+         [self uintAtOffset:segmentSectionIndex + segmentRunLegnth + 4 inData:message];
          switch (segmentId)
          {
             case Isothermal:
-               segment = [[SegmentIsothermal alloc]initWithBytes:message.bytes + segmentSectionIndex];
+               segment =
+               [[SegmentIsothermal alloc]initWithBytes:message.bytes + segmentSectionIndex + segmentRunLegnth];
                break;
             case Ramp:
+               segment =
+               [[SegmentRamp alloc]initWithDegreesPerMinute:20 finalTemerature:50];
                break;
             case Equilibrate:
+               segment =
+               [[SegmentEquilibrate alloc]initWithTemperature:40];
                break;
             case DataOn:
                break;
