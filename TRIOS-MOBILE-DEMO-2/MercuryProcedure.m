@@ -227,7 +227,7 @@ static int uniqueTagStatic = 0;
    if(self = [super init])
    {
       _segmentId  = DataOn;
-      _on = (BOOL)[self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:16]];
+      _on = (BOOL)[self uintAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:16]];
    }
    
    return self;
@@ -494,8 +494,12 @@ static int uniqueTagStatic = 0;
                [[SegmentEquilibrate alloc]initWithBytes:message.bytes + segmentSectionIndex + segmentRunLegnth];
                break;
             case DataOn:
+               segment =
+               [[SegmentDataOn alloc]initWithBytes:message.bytes + segmentSectionIndex + segmentRunLegnth];
                break;
             case Repeat:
+               segment =
+               [[SegmentRepeat alloc]initWithBytes:message.bytes + segmentSectionIndex + segmentRunLegnth];
                break;
          }
          
