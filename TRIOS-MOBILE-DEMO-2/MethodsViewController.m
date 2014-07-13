@@ -7,12 +7,52 @@
 //
 
 #import "MethodsViewController.h"
+#import "AppDelegate.h"
+#import "MercuryProcedure.h"
 
-@interface MethodsViewController ()
+@interface MethodsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation MethodsViewController
+{
+   AppDelegate* _app;
+   MercuryInstrument* _instrument;
+   IBOutlet UITableView *_tableView;
+   
+   MercuryGetProcedureResponse* _response;
+}
+
+-(NSInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
+{
+   return [_response.segments count];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView
+       cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+   
+   if (cell == nil)
+   {
+      cell = [[UITableViewCell alloc]
+              initWithStyle:UITableViewCellStyleValue1
+              reuseIdentifier:@"MyIdentifier"];
+      
+      cell.backgroundColor = [UIColor clearColor];
+   }
+   
+   cell.selectionStyle = UITableViewCellSelectionStyleNone;
+   
+   cell.textLabel.text = [[_response.segments objectAtIndex:indexPath.row] name];
+   
+   cell.detailTextLabel.text = [[_response.segments objectAtIndex:indexPath.row] description];
+   
+   cell.textLabel.textColor = [UIColor whiteColor];
+   cell.detailTextLabel.textColor = [UIColor blueColor];
+   
+   return cell;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +65,8 @@
 
 - (void)viewDidLoad
 {
+   NSLog(@"viewDidLoad");
+   
    [super viewDidLoad];
 
    UIBarButtonItem* space =
@@ -49,8 +91,6 @@
    UIBarButtonItem* open =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(noAction)];
    
-   
-   
    [self.navigationController setToolbarHidden:NO];
    [self setToolbarItems:[NSArray arrayWithObjects:
                           play,
@@ -67,12 +107,44 @@
                           nil]];
    
    self.title = @"Methods";
+   
+   _app = [[UIApplication sharedApplication] delegate];
+   _instrument = [_app instrument];
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+   NSLog(@"viewWillAppear");
+   
+   [_instrument addDelegate:self];
+   [_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+   NSLog(@"viewDidDisappear");
+   
+   [_instrument removeDelegate:self];
 }
 
 -(void)noAction
 {
 }
+
+-(void)   response:(NSData*)message
+withSequenceNumber:(uint)sequenceNumber
+        subcommand:(uint)subcommand
+            status:(uint)status
+{
+   if (subcommand == MercuryGetProcedureCommandId)
+   {
+      _response =
+      [[MercuryGetProcedureResponse alloc]initWithMessage:message];
+      
+      [_tableView reloadData];
+   }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

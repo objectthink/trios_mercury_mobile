@@ -48,11 +48,17 @@
 -(void)nakWithSequenceNumber:(uint)sequencenumber andError:(uint)errorcode {}
 -(void)error:(NSError*)error {}
 
+BOOL _toggle = NO;
 -(void)onlineTapped
 {
    [_popoverController dismissPopoverAnimated:YES];
    
-   [_instrument connectToHost:@"10.52.53.155" andPort:8080];
+   if(_toggle)
+      [_instrument connectToHost:@"10.52.51.32" andPort:8080];
+   else
+      [_instrument connectToHost:@"10.52.53.155" andPort:8080];
+   
+   _toggle = !_toggle;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

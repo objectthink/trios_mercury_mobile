@@ -21,7 +21,8 @@ typedef enum
    MercuryStartProcedureCommandId = 0x00010006,
    MercurySetProcedureCommandId = 0x01010000,
    MercuryGetProcedureStatusCommandId = 0x00000009,
-   MercuryGetDataFileStatusCommandId = 0x00000006
+   MercuryGetDataFileStatusCommandId = 0x00000006,
+   MercuryGetProcedureCommandId = 0x01000000
 }MercuryCommandId;
 
 @interface MercuryInstrumentItem : NSObject <NSCopying>
@@ -123,5 +124,6 @@ typedef enum
 -(float)floatAtOffset:(NSUInteger)offset inData:(NSData*)data;
 -(uint)uintAtOffset:(NSUInteger)offset inData:(NSData*)data;
 -(void)addDelegate:(id<MercuryInstrumentDelegate>) delegate;
+-(void)removeDelegate:(id<MercuryInstrumentDelegate>) delegate;
 -(NSArray*)knownSignalNames;
 @end

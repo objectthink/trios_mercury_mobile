@@ -296,11 +296,15 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YWI-Wd-mjR">
                                 <rect key="frame" x="264" y="154" width="496" height="460"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H2k-dm-wQB" id="5XG-yk-4LM"/>
+                                    <outlet property="delegate" destination="H2k-dm-wQB" id="54o-wk-MUi"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-PY-3HH">
                                 <rect key="frame" x="45" y="458" width="171" height="184"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <inset key="titleEdgeInsets" minX="-161" minY="0.0" maxX="0.0" maxY="-150"/>
+                                <inset key="titleEdgeInsets" minX="-173" minY="0.0" maxX="0.0" maxY="-150"/>
                                 <state key="normal" title="Segments" image="signals.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,7 +313,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-3A-nyK">
                                 <rect key="frame" x="809" y="458" width="171" height="184"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <inset key="titleEdgeInsets" minX="-161" minY="0.0" maxX="0.0" maxY="-150"/>
+                                <inset key="titleEdgeInsets" minX="-171" minY="0.0" maxX="0.0" maxY="-150"/>
                                 <state key="normal" title="Home" image="home.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,6 +335,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="oK6-AU-6lf"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="_tableView" destination="YWI-Wd-mjR" id="XZP-Hu-hIj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQb-im-Jut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

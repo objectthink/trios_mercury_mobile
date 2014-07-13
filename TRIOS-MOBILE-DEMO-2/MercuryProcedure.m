@@ -51,6 +51,17 @@ static int uniqueTagStatic = 0;
    float _timeInMinutes;
 }
 
+-(instancetype)initWithBytes:(const void *)bytes
+{
+   if(self = [super init])
+   {
+      _segmentId  = 0x01030000;
+      _timeInMinutes = [self floatAtOffset:12 inData:[[NSData alloc] initWithBytes:bytes length:16]];
+   }
+   
+   return self;
+}
+
 -(instancetype)initWithTime:(float)timeInMinutes
 {
    if(self = [super init])
@@ -382,36 +393,79 @@ static int uniqueTagStatic = 0;
    return self;
 }
 
+//TODO:ENSURE THAT MESSAGE DATA STARTS AFTER SUB COMMAND ID!
+//TODO:ROLL SEGMENT LENGTH INCLUDING OVERHEAD INTO SEGMENT CLASS
 -(instancetype)initWithMessage:(NSData *)message
 {
    if(self = [super initWithMessage:message])
    {
-      uint subcommand = [self uintAtOffset:0 inData:message];
-      uint lengthOfSetupSection = [self uintAtOffset:4 inData:message];
-      uint lengthOfSignalSection= [self uintAtOffset:lengthOfSetupSection + 8 inData:message];
+      self.signals = [[NSMutableArray alloc] init];
+      self.segments = [[NSMutableArray alloc] init];
       
-      int signalSectionIndex = lengthOfSetupSection+8+4;
+      uint lengthOfSetupSection = [self uintAtOffset:0 inData:message];
+      uint lengthOfSignalSection= [self uintAtOffset:lengthOfSetupSection + 4 inData:message];
       
-      self.bytes =
-      [NSMutableData dataWithBytes:message.bytes+signalSectionIndex length:lengthOfSignalSection];
+      int signalSectionIndex = lengthOfSetupSection+8;
       
-      int signal;
-      [self.bytes getBytes:&signal range:NSMakeRange(0, 4)];
+      int numberOfSignals = lengthOfSignalSection /4;
+      for (int i = 0; i < numberOfSignals; i++)
+      {
+         float signalAsFloat =
+         [self uintAtOffset:signalSectionIndex+i*4 inData:message];
+         
+         [self.signals addObject:[NSNumber numberWithFloat:signalAsFloat]];
 
-      NSLog(@"%d %d %d %d",
-            subcommand,
-            lengthOfSetupSection,
-            lengthOfSignalSection,
-            signal);
+         NSLog(@"%f",signalAsFloat);
+      }
+      
+      //GET SEGMENT, CREATE CONCRETE TYPE, ASK FOR LENGTH
+      int lengthOfSegmentSection =
+      [self uintAtOffset:lengthOfSetupSection + 4 + lengthOfSignalSection + 4
+                  inData:message];
+      
+      int segmentSectionIndex = lengthOfSetupSection + 4 + lengthOfSignalSection + 4 + 4;
+      
+      int segmentRunLegnth = 0;
+      
+      while (segmentSectionIndex + segmentRunLegnth < [message length])
+      {
+         MercurySegment* segment;
+         uint segmentId = [self uintAtOffset:segmentSectionIndex + 4 inData:message];
+         switch (segmentId)
+         {
+            case Isothermal:
+               segment = [[SegmentIsothermal alloc]initWithBytes:message.bytes + segmentSectionIndex];
+               break;
+            case Ramp:
+               break;
+            case Equilibrate:
+               break;
+            case DataOn:
+               break;
+            case Repeat:
+               break;
+         }
+         
+         segmentRunLegnth += [[segment getBytes] length];
+         
+         [_segments addObject:segment];
+      }
       
       [self initSignalToString];
-      
    }
    return self;
 }
 @end
 
 @implementation MercuryGetProcedureCommand
+-(instancetype)init
+{
+   if(self = [super init])
+   {
+      subCommandId = MercuryGetProcedureCommandId;
+   }
+   return self;
+}
 @end
 
 @implementation MercurySetProcedureCommand

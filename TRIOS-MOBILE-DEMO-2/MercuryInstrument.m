@@ -13,17 +13,16 @@
 -(void)connected {}
 -(void)accept:(MercuryAccess)access {}
 -(void)stat:(NSData*)message withSubcommand:(uint)subcommand {}
--(void)response:(NSData*)message withSequenceNumber:(uint)sequenceNumber subcommand:(uint)subcommand status:(uint)status {}
+
+-(void)   response:(NSData*)message
+withSequenceNumber:(uint)sequenceNumber
+        subcommand:(uint)subcommand
+            status:(uint)status {}
+
 -(void)ackWithSequenceNumber:(uint)sequencenumber {}
 -(void)nakWithSequenceNumber:(uint)sequencenumber andError:(uint)errorcode {}
 -(void)error:(NSError*)error {}
 @end
-
-union intToFloat
-{
-   uint32_t i;
-   float fp;
-};
 
 @implementation MercuryInstrumentItem : NSObject
 {
@@ -52,25 +51,12 @@ union intToFloat
    return self.bytes;
 }
 
--(float)floatAtOffset:(NSUInteger)offset inData:(NSData*)data;\
+-(float)floatAtOffset:(NSUInteger)offset inData:(NSData*)data
 {
    assert([data length] >= offset + sizeof(float));
-   union intToFloat convert;
-   
-   const uint32_t* bytes = [data bytes] + offset;
-   
-   //convert.i = CFSwapInt32BigToHost(*bytes);
-   
-   convert.i = (*bytes);
-   
-   const float value = convert.fp;
-   
-   //////////////////////////////////////////
-   //TEST
-   float testFloat;
-   [data getBytes:&testFloat range:NSMakeRange(offset, 4)];
-   
-   //////////////////////////////////////////
+
+   float value;
+   [data getBytes:&value range:NSMakeRange(offset, 4)];
 
    return value;
 }
@@ -78,21 +64,10 @@ union intToFloat
 -(uint)uintAtOffset:(NSUInteger)offset inData:(NSData*)data
 {
    assert([data length] >= offset + sizeof(float));
-   union intToFloat convert;
-   
-   const uint32_t* bytes = [data bytes] + offset;
-   
-   convert.i = (*bytes);
-   
-   const uint value = convert.i;
-   
-   //////////////////////////////////////////
-   //TEST
-   int testInt;
-   [data getBytes:&testInt range:NSMakeRange(offset, 4)];
-   
-   //////////////////////////////////////////
 
+   uint value;
+   [data getBytes:&value range:NSMakeRange(offset, 4)];
+   
    return value;
 }
 
@@ -283,35 +258,27 @@ union intToFloat
    [delegates addObject:delegate];
 }
 
--(float)floatAtOffset:(NSUInteger)offset
-               inData:(NSData*)data
+-(void)removeDelegate:(id<MercuryInstrumentDelegate>)delegate
+{
+   [delegates removeObject:delegate];
+}
+
+-(float)floatAtOffset:(NSUInteger)offset inData:(NSData*)data
 {
    assert([data length] >= offset + sizeof(float));
-   union intToFloat convert;
    
-   const uint32_t* bytes = [data bytes] + offset;
-   
-   //convert.i = CFSwapInt32BigToHost(*bytes);
-   
-   convert.i = (*bytes);
-   
-   const float value = convert.fp;
+   float value;
+   [data getBytes:&value range:NSMakeRange(offset, 4)];
    
    return value;
 }
 
--(uint)uintAtOffset:(NSUInteger)offset
-             inData:(NSData*)data
+-(uint)uintAtOffset:(NSUInteger)offset inData:(NSData*)data
 {
    assert([data length] >= offset + sizeof(float));
    
-   union intToFloat convert;
-   
-   const uint32_t* bytes = [data bytes] + offset;
-   
-   convert.i = (*bytes);
-   
-   const uint value = convert.i;
+   uint value;
+   [data getBytes:&value range:NSMakeRange(offset, 4)];
    
    return value;
 }

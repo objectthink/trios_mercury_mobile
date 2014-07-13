@@ -272,6 +272,10 @@ typedef enum SegmentIds
 -(NSString*)signalToString:(int)signal;
 -(int)signalAtIndex:(int)index;
 -(int)indexOfSignal:(int)signal;
+
+@property (strong) NSMutableArray* signals;
+@property (strong) NSMutableArray* segments;
+
 @end
 
 @interface MercurySegment : MercuryInstrumentItem
@@ -291,6 +295,7 @@ typedef enum SegmentIds
 @end
 
 @interface MercuryGetProcedureCommand : MercuryGet
+-(instancetype)init;
 @end
 
 @interface MercurySetProcedureCommand : MercuryAction
@@ -299,8 +304,10 @@ typedef enum SegmentIds
 @end
 
 @interface SegmentIsothermal : MercurySegment
+-(instancetype)initWithBytes:(const void*)bytes;
 -(instancetype)initWithTime:(float)timeInMinutes;
 -(instancetype)copyWithZone:(NSZone *)zone;
+
 @property float timeInMinutes;
 @end
 
