@@ -13,17 +13,22 @@
 @end
 
 @implementation ConnectPopoverViewController
+{
+   IBOutlet UILabel *_nameLabel;
+   IBOutlet UILabel *_serialNumberLabel;
+   IBOutlet UILabel *_addressLabel;
+}
 
 - (IBAction)onlineTapped:(id)sender
 {
-   [self.connectDelegate onlineTapped];
+   [self.connectDelegate onlineTapped:self];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-   if (self) {
-      // Custom initialization
+   if (self)
+   {
    }
    return self;
 }
@@ -31,13 +36,15 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-   // Do any additional setup after loading the view.
+   
+   _nameLabel.text = self.name;
+   _serialNumberLabel.text = self.serialNumber;
+   _addressLabel.text = self.address;
 }
 
 - (void)didReceiveMemoryWarning
 {
    [super didReceiveMemoryWarning];
-   // Dispose of any resources that can be recreated.
 }
 
 /*

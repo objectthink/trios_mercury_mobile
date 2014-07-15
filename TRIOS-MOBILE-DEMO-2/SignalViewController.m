@@ -30,7 +30,7 @@
 
 - (IBAction)signalsButtonTapped:(id)sender
 {
-   CGRect frame = CGRectMake(450, 500, 10, 10);
+   CGRect frame = CGRectMake(250, 500, 10, 10);
 
    CGRect rect = [_signalTableView convertRect:frame toView:self.view];
    

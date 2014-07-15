@@ -11,6 +11,31 @@
 #import "ConnectPopoverViewController.h"
 #import "AppDelegate.h"
 
+@interface InstrumentInfo : NSObject
+@property (strong) NSString* name;
+@property (strong) NSString* serialNumber;
+@property (strong) NSString* address;
+
+-(id)initWith:(NSString*)name
+ serialNumber:(NSString*)serialNumber
+      address:(NSString*)address;
+@end
+
+@implementation InstrumentInfo
+-(id)initWith:(NSString *)name
+ serialNumber:(NSString *)serialNumber
+      address:(NSString *)address
+{
+   if([super init])
+   {
+      self.name = name;
+      self.serialNumber = serialNumber;
+      self.address = address;
+   }
+   return self;
+}
+@end
+
 @interface TriosCollectionViewController() <UIPopoverControllerDelegate, ConnectDelegate>
 {
    UIPopoverController* _popoverController;
@@ -22,6 +47,9 @@
 @end
 
 @implementation TriosCollectionViewController
+{
+   NSArray* _instruments;
+}
 
 #pragma mark - Mercury
 -(void)connected
@@ -29,7 +57,7 @@
    NSLog(@"connected");
    
    [_instrument
-    loginWithUsername:@"USERNAME"
+    loginWithUsername:@"SNE"
           machineName:@"SUPER-SECRET-IPAD-2"
             ipAddress:@"localhost"
                access:Master
@@ -37,28 +65,29 @@
    
    _connected = YES;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   
+}
+
 -(void)accept:(MercuryAccess)access
 {
    NSLog(@"accept:%d",access);
    [self performSegueWithIdentifier:@"TriosInstrumentCellSegue" sender:self];
 }
+
 -(void)stat:(NSData*)message withSubcommand:(uint)subcommand {}
 -(void)response:(NSData*)message withSequenceNumber:(uint)sequenceNumber subcommand:(uint)subcommand status:(uint)status {}
 -(void)ackWithSequenceNumber:(uint)sequencenumber {}
 -(void)nakWithSequenceNumber:(uint)sequencenumber andError:(uint)errorcode {}
 -(void)error:(NSError*)error {}
 
-BOOL _toggle = YES;
--(void)onlineTapped
+-(void)onlineTapped:(ConnectPopoverViewController*)controller
 {
    [_popoverController dismissPopoverAnimated:YES];
    
-   if(_toggle)
-      [_instrument connectToHost:@"10.52.53.8" andPort:8080];
-   else
-      [_instrument connectToHost:@"10.52.53.155" andPort:8080];
-   
-   _toggle = !_toggle;
+   [_instrument connectToHost:controller.address andPort:8080];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -71,6 +100,12 @@ BOOL _toggle = YES;
    
    c.connectDelegate = self;
    
+   InstrumentInfo* info = [_instruments objectAtIndex:indexPath.row];
+   
+   c.name = info.name;
+   c.serialNumber = info.serialNumber;
+   c.address = info.address;
+
    _popoverController =
    [[UIPopoverController alloc] initWithContentViewController:c];
    
@@ -85,7 +120,7 @@ BOOL _toggle = YES;
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-   return 10;
+   return [_instruments count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -96,34 +131,39 @@ BOOL _toggle = YES;
    UIImageView* _imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
 
    [cell.contentView addSubview:_imageView];
+   
+   [_imageView setImage:[UIImage imageNamed:@"MERCURYDSC.png"]];
+   [_imageView setBackgroundColor:[UIColor clearColor]];
+   [_imageView setOpaque:NO];
 
-   switch (indexPath.row) {
-      case 0:
-         [_imageView setImage:[UIImage imageNamed:@"MERCURYDSC.png"]];
-         [_imageView setBackgroundColor:[UIColor clearColor]];
-         [_imageView setOpaque:NO];
-         break;
-      case 1:
-         [_imageView setImage:[UIImage imageNamed:@"dhr.png"]];
-         [_imageView setBackgroundColor:[UIColor clearColor]];
-         [_imageView setOpaque:NO];
-         break;
-      case 2:
-         [_imageView setImage:[UIImage imageNamed:@"disc_dsc.png"]];
-         [_imageView setBackgroundColor:[UIColor clearColor]];
-         [_imageView setOpaque:NO];
-         break;
-      case 3:
-         [_imageView setImage:[UIImage imageNamed:@"disc_dsc.png"]];
-         [_imageView setBackgroundColor:[UIColor clearColor]];
-         [_imageView setOpaque:NO];
-         break;
-      default:
-         [_imageView setImage:[UIImage imageNamed:@"MERCURYDSC.png"]];
-         [_imageView setBackgroundColor:[UIColor clearColor]];
-         [_imageView setOpaque:NO];
-         break;
-   }
+
+//   switch (indexPath.row) {
+//      case 0:
+//         [_imageView setImage:[UIImage imageNamed:@"MERCURYDSC.png"]];
+//         [_imageView setBackgroundColor:[UIColor clearColor]];
+//         [_imageView setOpaque:NO];
+//         break;
+//      case 1:
+//         [_imageView setImage:[UIImage imageNamed:@"dhr.png"]];
+//         [_imageView setBackgroundColor:[UIColor clearColor]];
+//         [_imageView setOpaque:NO];
+//         break;
+//      case 2:
+//         [_imageView setImage:[UIImage imageNamed:@"disc_dsc.png"]];
+//         [_imageView setBackgroundColor:[UIColor clearColor]];
+//         [_imageView setOpaque:NO];
+//         break;
+//      case 3:
+//         [_imageView setImage:[UIImage imageNamed:@"disc_dsc.png"]];
+//         [_imageView setBackgroundColor:[UIColor clearColor]];
+//         [_imageView setOpaque:NO];
+//         break;
+//      default:
+//         [_imageView setImage:[UIImage imageNamed:@"MERCURYDSC.png"]];
+//         [_imageView setBackgroundColor:[UIColor clearColor]];
+//         [_imageView setOpaque:NO];
+//         break;
+//   }
    
    //cell.backgroundColor = [UIColor clearColor];
    
@@ -159,13 +199,18 @@ BOOL _toggle = YES;
    
    [_instrument addDelegate:self];
    
-   //_instrument.instrumentDelegate = self;
+   _instruments =
+  @[
+      [[InstrumentInfo alloc] initWith:@"DIONYSUS" serialNumber:@"010101" address:@"10.52.53.8"],
+      [[InstrumentInfo alloc]initWith:@"DIONYSUS-DEBUG" serialNumber:@"011101" address:@"10.52.51.32"],
+      [[InstrumentInfo alloc]initWith:@"Mariner" serialNumber:@"110111" address:@"10.52.53.155"],
+      [[InstrumentInfo alloc]initWith:@"Quicksilver" serialNumber:@"111111" address:@"10.52.53.156"]
+   ];
 }
 
 - (void)didReceiveMemoryWarning
 {
    [super didReceiveMemoryWarning];
-   // Dispose of any resources that can be recreated.
 }
 
 /*

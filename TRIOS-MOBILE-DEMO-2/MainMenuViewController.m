@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuViewController.h"
+#import "AppDelegate.h"
+#import "MercuryInstrument.h"
 
 @interface MainMenuViewController ()
 
@@ -49,8 +51,6 @@
    UIBarButtonItem* open =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(noAction)];
    
-   
-
    [self.navigationController setToolbarHidden:NO];
    [self setToolbarItems:[NSArray arrayWithObjects:
                           play,
@@ -66,7 +66,18 @@
                           reset,
                           nil]];
    
-   self.title = @"Trios Main Menu [10.52.51.32] VIEWER";
+   AppDelegate* app = [[UIApplication sharedApplication] delegate];
+   
+   MercuryInstrument* instrument = app.instrument;
+
+   NSString* accessString;
+   if(instrument.access == Master)
+      accessString = @"Master";
+   else
+      accessString = @"Viewer";
+   
+   self.title =
+   [[NSString alloc]initWithFormat:@"Trios Main Menu [%@] %@",instrument.host,accessString];
 }
 
 -(void)noAction
@@ -75,8 +86,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-   [super didReceiveMemoryWarning];
-   // Dispose of any resources that can be recreated.
+   [super didReceiveMemoryWarning];   // Dispose of any resources that can be recreated.
 }
 
 /*

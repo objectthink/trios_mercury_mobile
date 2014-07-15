@@ -362,7 +362,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7777777" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I99-bz-bB9">
-                                <rect key="frame" x="20" y="50" width="103" height="22"/>
+                                <rect key="frame" x="20" y="50" width="210" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -399,6 +399,11 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="250" height="200"/>
+                    <connections>
+                        <outlet property="_addressLabel" destination="CzL-Od-llO" id="Mrd-MQ-tVh"/>
+                        <outlet property="_nameLabel" destination="hFl-NE-ZVw" id="Ujq-EW-VJh"/>
+                        <outlet property="_serialNumberLabel" destination="I99-bz-bB9" id="HUE-cl-UXW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDr-Ae-GHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

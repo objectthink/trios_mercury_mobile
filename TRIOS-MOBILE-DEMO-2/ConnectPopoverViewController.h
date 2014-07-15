@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class ConnectPopoverViewController;
+
 @protocol ConnectDelegate <NSObject>
--(void)onlineTapped;
+-(void)onlineTapped:(ConnectPopoverViewController*)controller;
 @end
 
 @interface ConnectPopoverViewController : UIViewController
+@property (strong) NSString* name;
+@property (strong) NSString* serialNumber;
+@property (strong) NSString* address;
 @property id<ConnectDelegate> connectDelegate;
 @end
