@@ -50,6 +50,12 @@
 		0192DA931970CA6200A073F0 /* as.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA921970CA6200A073F0 /* as.png */; };
 		0192DA951970CA8000A073F0 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA941970CA8000A073F0 /* info.png */; };
 		0192DA971970CABC00A073F0 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA961970CABC00A073F0 /* settings.png */; };
+		01DA3F0D1975DA30006ADFB7 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F0C1975DA30006ADFB7 /* ShinobiCharts.framework */; };
+		01DA3F0F1975DA3C006ADFB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F0E1975DA3C006ADFB7 /* QuartzCore.framework */; };
+		01DA3F111975DA49006ADFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F101975DA49006ADFB7 /* OpenGLES.framework */; };
+		01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F121975DA5B006ADFB7 /* CoreText.framework */; };
+		01DA3F151975DA6B006ADFB7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */; };
+		01DA3F181975DD6A006ADFB7 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DA3F171975DD6A006ADFB7 /* DataViewController.m */; };
 		7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38419717F9B00D90E11 /* MercuryInstrument.m */; };
 		7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F3871971804A00D90E11 /* MercuryProcedure.m */; };
 		7302F38B1971976300D90E11 /* SignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38A1971976300D90E11 /* SignalViewController.m */; };
@@ -120,6 +126,13 @@
 		0192DA921970CA6200A073F0 /* as.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = as.png; sourceTree = "<group>"; };
 		0192DA941970CA8000A073F0 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		0192DA961970CABC00A073F0 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		01DA3F0C1975DA30006ADFB7 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = Library/Frameworks/ShinobiCharts.framework; sourceTree = DEVELOPER_DIR; };
+		01DA3F0E1975DA3C006ADFB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		01DA3F101975DA49006ADFB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		01DA3F121975DA5B006ADFB7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		01DA3F161975DD6A006ADFB7 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		01DA3F171975DD6A006ADFB7 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		31E846662B5944999CBF1AE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7302F38319717F9B00D90E11 /* MercuryInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryInstrument.h; sourceTree = "<group>"; };
 		7302F38419717F9B00D90E11 /* MercuryInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryInstrument.m; sourceTree = "<group>"; };
@@ -135,6 +148,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DA3F151975DA6B006ADFB7 /* libstdc++.dylib in Frameworks */,
+				01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */,
+				01DA3F111975DA49006ADFB7 /* OpenGLES.framework in Frameworks */,
+				01DA3F0F1975DA3C006ADFB7 /* QuartzCore.framework in Frameworks */,
+				01DA3F0D1975DA30006ADFB7 /* ShinobiCharts.framework in Frameworks */,
 				0124D3A9196F67CF00A8D731 /* CoreGraphics.framework in Frameworks */,
 				0124D3AB196F67CF00A8D731 /* UIKit.framework in Frameworks */,
 				0124D3A7196F67CF00A8D731 /* Foundation.framework in Frameworks */,
@@ -178,6 +196,11 @@
 		0124D3A5196F67CF00A8D731 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */,
+				01DA3F121975DA5B006ADFB7 /* CoreText.framework */,
+				01DA3F101975DA49006ADFB7 /* OpenGLES.framework */,
+				01DA3F0E1975DA3C006ADFB7 /* QuartzCore.framework */,
+				01DA3F0C1975DA30006ADFB7 /* ShinobiCharts.framework */,
 				0124D3A6196F67CF00A8D731 /* Foundation.framework */,
 				0124D3A8196F67CF00A8D731 /* CoreGraphics.framework */,
 				0124D3AA196F67CF00A8D731 /* UIKit.framework */,
@@ -195,6 +218,8 @@
 				0124D3B8196F67CF00A8D731 /* Main.storyboard */,
 				0124D3B5196F67CF00A8D731 /* AppDelegate.h */,
 				0124D3B6196F67CF00A8D731 /* AppDelegate.m */,
+				01DA3F161975DD6A006ADFB7 /* DataViewController.h */,
+				01DA3F171975DD6A006ADFB7 /* DataViewController.m */,
 				0170FB1F1971A0210077F2A7 /* SignalChoiceViewController.h */,
 				0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */,
 				7302F3891971976300D90E11 /* SignalViewController.h */,
@@ -462,6 +487,7 @@
 				7302F38B1971976300D90E11 /* SignalViewController.m in Sources */,
 				0124D3B7196F67CF00A8D731 /* AppDelegate.m in Sources */,
 				0124D3DD196F6CA700A8D731 /* TriosInstrumentCell.m in Sources */,
+				01DA3F181975DD6A006ADFB7 /* DataViewController.m in Sources */,
 				0124D3E0196F6D4F00A8D731 /* TriosCollectionViewController.m in Sources */,
 				0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */,
 				01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */,
@@ -596,6 +622,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Prefix.pch";
 				INFOPLIST_FILE = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Info.plist";
@@ -610,6 +640,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Prefix.pch";
 				INFOPLIST_FILE = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Info.plist";
