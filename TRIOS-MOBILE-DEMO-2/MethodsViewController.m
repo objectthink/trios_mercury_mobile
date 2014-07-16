@@ -11,7 +11,6 @@
 #import "MercuryProcedure.h"
 
 @interface MethodsViewController () <UITableViewDataSource, UITableViewDelegate>
-
 @end
 
 @implementation MethodsViewController
@@ -21,7 +20,91 @@
    IBOutlet UITableView *_tableView;
    
    MercuryGetProcedureResponse* _response;
+   
+   NSObject<MercuryDataFileVisualizer>* _dataFileVisualizer;
+   NSObject<MercuryDataFileVisualizerEx>* _dataFileVisualizerEx;
+   
+   MercuryFile* _file;
+   MercuryDataFileReader* _reader;
+   
+   MercuryDataRecord* _dataRecord;
+
+   int _offset;
+   int _selectedSignalIndex;
 }
+
+#pragma mark - segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   if ([segue.identifier isEqualToString:@"ProcedureDetail"])
+   {
+      _dataFileVisualizer = [segue destinationViewController];
+      _dataFileVisualizerEx = [segue destinationViewController];
+   }
+   
+}
+
+#pragma mark - IMercuryFileReader
+-(void)finished:(id<IMercuryFile>)file
+{
+   _reader.delegate = nil;
+   
+   _file = nil;
+   _reader = nil;
+   
+   [_dataFileVisualizerEx end];
+}
+
+-(void)updated:(id<IMercuryFile>)file
+{
+   NSLog(@"updated:%lu",(unsigned long)file.data.length);
+   while (_offset < file.data.length)
+   {
+      MercuryRecord* r = (MercuryRecord*)[file getMercuryRecordAtOffset:_offset];
+      
+      id s = r;
+      
+      if (r == nil)
+         break;
+      
+      NSLog(@"%@",r.tag);
+      
+      _offset += r.length;
+      
+      if([s isKindOfClass:MercuryDataRecord.class])
+      {
+         _dataRecord = (MercuryDataRecord*)r;
+         
+         if (_dataFileVisualizer != nil)
+         {
+
+            [_dataFileVisualizerEx procedure:_response
+                                      record:_dataRecord
+                                     xSignal:IdCommonTime
+                                     ySignal:[_response signalAtIndex:_selectedSignalIndex]
+                                 seriesIndex:0];
+         }
+      }
+      
+      if ([s isKindOfClass:MercurySgmtRecord.class])
+      {
+         MercurySgmtRecord* gr = (MercurySgmtRecord*)r;
+         
+         [_dataFileVisualizerEx procedure:_response
+                                  segment:gr];
+      }
+      
+      if([s isKindOfClass:MercuryGetRecord.class])
+      {
+         MercuryGetRecord* gr = (MercuryGetRecord*)r;
+         
+         _response =
+         [[MercuryGetProcedureResponse alloc]initWithMessage:gr.data];
+      }
+   }
+}
+
+#pragma mark - tableview
 
 -(NSInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -54,6 +137,7 @@
    return cell;
 }
 
+#pragma mark - initialization
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -110,6 +194,8 @@
    
    _app = [[UIApplication sharedApplication] delegate];
    _instrument = [_app instrument];
+   
+   _selectedSignalIndex = 9;  //default for now until we allow the user to choose
 }
 
 -(void)viewWillAppear:(BOOL)animated

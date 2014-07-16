@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MercuryFile.h"
 
-@interface DataViewController : UIViewController
+@interface DataViewController : UIViewController <MercuryDataFileVisualizer, MercuryDataFileVisualizerEx>
 
 @end

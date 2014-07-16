@@ -18,6 +18,33 @@
    ShinobiChart* _chart;
 }
 
+#pragma mark - MercuryDataFileVisualizer
+-(void)pointData:(float)data time:(float)time
+{
+   
+}
+
+-(void)procedure:(MercuryGetProcedureResponse*)procedure
+          record:(MercuryDataRecord*)record
+         xSignal:(int)xSignal
+         ySignal:(int)ySignal
+     seriesIndex:(int)seriesIndex
+{
+   
+}
+
+-(void)procedure:(MercuryGetProcedureResponse*)procedure
+         segment:(MercurySgmtRecord*)segment
+{
+   
+}
+
+-(void)end
+{
+   
+}
+
+#pragma mark - chart
 - (long)numberOfSeriesInSChart:(ShinobiChart *)chart
 {
    return 2;

@@ -56,6 +56,9 @@
 		01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F121975DA5B006ADFB7 /* CoreText.framework */; };
 		01DA3F151975DA6B006ADFB7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */; };
 		01DA3F181975DD6A006ADFB7 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DA3F171975DD6A006ADFB7 /* DataViewController.m */; };
+		01DA3F1A19768717006ADFB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F1919768717006ADFB7 /* Security.framework */; };
+		01DA3F1F19768848006ADFB7 /* MercuryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DA3F1C19768848006ADFB7 /* MercuryStatus.m */; };
+		01DA3F2019768848006ADFB7 /* MercuryFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DA3F1E19768848006ADFB7 /* MercuryFile.m */; };
 		7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38419717F9B00D90E11 /* MercuryInstrument.m */; };
 		7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F3871971804A00D90E11 /* MercuryProcedure.m */; };
 		7302F38B1971976300D90E11 /* SignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38A1971976300D90E11 /* SignalViewController.m */; };
@@ -133,6 +136,11 @@
 		01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		01DA3F161975DD6A006ADFB7 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		01DA3F171975DD6A006ADFB7 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
+		01DA3F1919768717006ADFB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		01DA3F1B19768848006ADFB7 /* MercuryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryStatus.h; sourceTree = "<group>"; };
+		01DA3F1C19768848006ADFB7 /* MercuryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryStatus.m; sourceTree = "<group>"; };
+		01DA3F1D19768848006ADFB7 /* MercuryFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryFile.h; sourceTree = "<group>"; };
+		01DA3F1E19768848006ADFB7 /* MercuryFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryFile.m; sourceTree = "<group>"; };
 		31E846662B5944999CBF1AE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7302F38319717F9B00D90E11 /* MercuryInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryInstrument.h; sourceTree = "<group>"; };
 		7302F38419717F9B00D90E11 /* MercuryInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryInstrument.m; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DA3F1A19768717006ADFB7 /* Security.framework in Frameworks */,
 				01DA3F151975DA6B006ADFB7 /* libstdc++.dylib in Frameworks */,
 				01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */,
 				01DA3F111975DA49006ADFB7 /* OpenGLES.framework in Frameworks */,
@@ -196,6 +205,7 @@
 		0124D3A5196F67CF00A8D731 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01DA3F1919768717006ADFB7 /* Security.framework */,
 				01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */,
 				01DA3F121975DA5B006ADFB7 /* CoreText.framework */,
 				01DA3F101975DA49006ADFB7 /* OpenGLES.framework */,
@@ -319,6 +329,10 @@
 		7302F38219717F8400D90E11 /* Mercury */ = {
 			isa = PBXGroup;
 			children = (
+				01DA3F1B19768848006ADFB7 /* MercuryStatus.h */,
+				01DA3F1C19768848006ADFB7 /* MercuryStatus.m */,
+				01DA3F1D19768848006ADFB7 /* MercuryFile.h */,
+				01DA3F1E19768848006ADFB7 /* MercuryFile.m */,
 				7302F38319717F9B00D90E11 /* MercuryInstrument.h */,
 				7302F38419717F9B00D90E11 /* MercuryInstrument.m */,
 				7302F3861971804A00D90E11 /* MercuryProcedure.h */,
@@ -486,8 +500,10 @@
 				0170FB211971A0210077F2A7 /* SignalChoiceViewController.m in Sources */,
 				7302F38B1971976300D90E11 /* SignalViewController.m in Sources */,
 				0124D3B7196F67CF00A8D731 /* AppDelegate.m in Sources */,
+				01DA3F2019768848006ADFB7 /* MercuryFile.m in Sources */,
 				0124D3DD196F6CA700A8D731 /* TriosInstrumentCell.m in Sources */,
 				01DA3F181975DD6A006ADFB7 /* DataViewController.m in Sources */,
+				01DA3F1F19768848006ADFB7 /* MercuryStatus.m in Sources */,
 				0124D3E0196F6D4F00A8D731 /* TriosCollectionViewController.m in Sources */,
 				0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */,
 				01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */,

@@ -311,7 +311,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="URe-Si-Ltm" kind="push" id="VSO-Pm-j9D"/>
+                                    <segue destination="URe-Si-Ltm" kind="push" identifier="ProcedureDetail" id="VSO-Pm-j9D"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-3A-nyK">

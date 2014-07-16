@@ -466,9 +466,11 @@ static int uniqueTagStatic = 0;
       }
       
       //GET SEGMENT, CREATE CONCRETE TYPE, ASK FOR LENGTH
-      int lengthOfSegmentSection =
-      [self uintAtOffset:lengthOfSetupSection + 4 + lengthOfSignalSection + 4
-                  inData:message];
+      
+      //CALCULATE SEGMENT SECTION LENGTH
+      //int lengthOfSegmentSection =
+      //[self uintAtOffset:lengthOfSetupSection + 4 + lengthOfSignalSection + 4
+      //            inData:message];
       
       int segmentSectionIndex = lengthOfSetupSection + 4 + lengthOfSignalSection + 4 + 4;
       
