@@ -354,16 +354,16 @@ static int uniqueTagStatic = 0;
 
 -(int)signalAtIndex:(int)index
 {
-   int signal;
-   [self.bytes getBytes:&signal range:NSMakeRange(index * 4, 4)];
+   //int signal;
+   //[self.bytes getBytes:&signal range:NSMakeRange(index * 4, 4)];
    
-   return signal;
+   return (int)[[self.signals objectAtIndex:index] integerValue];
 }
 
 -(int)indexOfSignal:(int)signal
 {
    int index = -1;
-   int signalCount = (int)self.bytes.length  / 4;
+   int signalCount = (int)[self.signals count];      //(int)self.bytes.length  / 4;
    
    for (int i=0; i < signalCount; i++)
    {
@@ -505,9 +505,14 @@ static int uniqueTagStatic = 0;
                break;
          }
          
-         segmentRunLegnth += [[segment getBytes] length];
+         if(segment == nil)
+            segmentRunLegnth += 16;
+         else
+         {
+            segmentRunLegnth += [[segment getBytes] length];
          
-         [_segments addObject:segment];
+            [_segments addObject:segment];
+         }
       }
       
       [self initSignalToString];

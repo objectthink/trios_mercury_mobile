@@ -30,9 +30,9 @@
 
 - (IBAction)signalsButtonTapped:(id)sender
 {
-   CGRect frame = CGRectMake(250, 500, 10, 10);
+   CGRect frame = CGRectMake(525, 650, 10, 10);
 
-   CGRect rect = [_signalTableView convertRect:frame toView:self.view];
+   //CGRect rect = [_signalTableView convertRect:frame toView:self.view];
    
    SignalChoiceViewController* c =
    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
@@ -41,7 +41,7 @@
    _signalChoiceListPopover =
    [[UIPopoverController alloc] initWithContentViewController:c];
    
-   [_signalChoiceListPopover presentPopoverFromRect:rect
+   [_signalChoiceListPopover presentPopoverFromRect:frame
                                              inView:self.view
                            permittedArrowDirections:UIPopoverArrowDirectionDown
                                            animated:YES];

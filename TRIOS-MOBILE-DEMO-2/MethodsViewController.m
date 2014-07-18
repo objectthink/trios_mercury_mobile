@@ -40,6 +40,18 @@
    {
       _dataFileVisualizer = [segue destinationViewController];
       _dataFileVisualizerEx = [segue destinationViewController];
+      
+      _offset = 0;
+      
+      _file =
+      [[MercuryFile alloc]initWithInstrument:_instrument andFilename:@"Procedure.dat"];
+      
+      _reader =
+      [[MercuryDataFileReader alloc]initWithInstrument:_instrument file:_file readSize:8192];
+      
+      _reader.delegate = self;
+      
+      [_reader start];
    }
    
 }
@@ -96,10 +108,12 @@
       
       if([s isKindOfClass:MercuryGetRecord.class])
       {
-         MercuryGetRecord* gr = (MercuryGetRecord*)r;
+         //MercuryGetRecord* gr = (MercuryGetRecord*)r;
          
-         _response =
-         [[MercuryGetProcedureResponse alloc]initWithMessage:gr.data];
+         //NSData *data = [[NSData alloc] initWithBytes:gr.data.bytes + 4 length:gr.data.length - 4];
+         
+         //_response =
+         //[[MercuryGetProcedureResponse alloc]initWithMessage:data];
       }
    }
 }
@@ -195,7 +209,7 @@
    _app = [[UIApplication sharedApplication] delegate];
    _instrument = [_app instrument];
    
-   _selectedSignalIndex = 9;  //default for now until we allow the user to choose
+   _selectedSignalIndex = 8;  //default for now until we allow the user to choose
 }
 
 -(void)viewWillAppear:(BOOL)animated
