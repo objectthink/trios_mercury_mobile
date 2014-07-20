@@ -10,6 +10,7 @@
 #import "TriosInstrumentCell.h"
 #import "ConnectPopoverViewController.h"
 #import "AppDelegate.h"
+#import "ProgressHUD.h"
 
 @interface InstrumentInfo : NSObject
 @property (strong) NSString* name;
@@ -56,6 +57,8 @@
 {
    NSLog(@"connected");
    
+   [ProgressHUD dismiss];
+   
    [_instrument
     loginWithUsername:@"SNE"
           machineName:@"SUPER-SECRET-IPAD-2"
@@ -68,7 +71,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-   
 }
 
 -(void)accept:(MercuryAccess)access
@@ -81,11 +83,17 @@
 -(void)response:(NSData*)message withSequenceNumber:(uint)sequenceNumber subcommand:(uint)subcommand status:(uint)status {}
 -(void)ackWithSequenceNumber:(uint)sequencenumber {}
 -(void)nakWithSequenceNumber:(uint)sequencenumber andError:(uint)errorcode {}
--(void)error:(NSError*)error {}
+
+-(void)error:(NSError *)error
+{
+   [ProgressHUD showError:[error debugDescription]];
+}
 
 -(void)onlineTapped:(ConnectPopoverViewController*)controller
 {
    [_popoverController dismissPopoverAnimated:YES];
+   
+   [ProgressHUD show:[NSString stringWithFormat:@"Connecting to %@",controller.name]];
    
    [_instrument connectToHost:controller.address andPort:8080];
 }

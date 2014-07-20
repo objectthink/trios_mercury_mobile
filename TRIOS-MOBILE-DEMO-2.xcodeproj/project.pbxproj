@@ -62,6 +62,8 @@
 		7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38419717F9B00D90E11 /* MercuryInstrument.m */; };
 		7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F3871971804A00D90E11 /* MercuryProcedure.m */; };
 		7302F38B1971976300D90E11 /* SignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7302F38A1971976300D90E11 /* SignalViewController.m */; };
+		73A9ED7D197C0935009FB575 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73A9ED7A197C0935009FB575 /* ProgressHUD.bundle */; };
+		73A9ED7E197C0935009FB575 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A9ED7C197C0935009FB575 /* ProgressHUD.m */; };
 		A19A0F5EC0AD4002B06DE4A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E846662B5944999CBF1AE3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,9 @@
 		7302F3871971804A00D90E11 /* MercuryProcedure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryProcedure.m; sourceTree = "<group>"; };
 		7302F3891971976300D90E11 /* SignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalViewController.h; sourceTree = "<group>"; };
 		7302F38A1971976300D90E11 /* SignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalViewController.m; sourceTree = "<group>"; };
+		73A9ED7A197C0935009FB575 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		73A9ED7B197C0935009FB575 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		73A9ED7C197C0935009FB575 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		E8763BFB3E154ADC88302E91 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +228,7 @@
 		0124D3AC196F67CF00A8D731 /* TRIOS-MOBILE-DEMO-2 */ = {
 			isa = PBXGroup;
 			children = (
+				73A9ED79197C0935009FB575 /* ProgressHUD */,
 				7302F38219717F8400D90E11 /* Mercury */,
 				0124D3E1196F6F3200A8D731 /* Resources */,
 				0124D3B8196F67CF00A8D731 /* Main.storyboard */,
@@ -341,6 +347,16 @@
 			name = Mercury;
 			sourceTree = "<group>";
 		};
+		73A9ED79197C0935009FB575 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				73A9ED7A197C0935009FB575 /* ProgressHUD.bundle */,
+				73A9ED7B197C0935009FB575 /* ProgressHUD.h */,
+				73A9ED7C197C0935009FB575 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,6 +451,7 @@
 				0124D3FD196F707C00A8D731 /* disc_dsc.png in Resources */,
 				0192DA931970CA6200A073F0 /* as.png in Resources */,
 				0124D401196F707C00A8D731 /* Glass (s).png in Resources */,
+				73A9ED7D197C0935009FB575 /* ProgressHUD.bundle in Resources */,
 				0124D3F5196F707C00A8D731 /* AR1500ex.png in Resources */,
 				0124D3FB196F707C00A8D731 /* BricoPack Wallpaper.bmp in Resources */,
 				0124D404196F707C00A8D731 /* NGTGA.png in Resources */,
@@ -509,6 +526,7 @@
 				01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */,
 				0124D3B3196F67CF00A8D731 /* main.m in Sources */,
 				7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */,
+				73A9ED7E197C0935009FB575 /* ProgressHUD.m in Sources */,
 				0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */,
 				7302F3881971804A00D90E11 /* MercuryProcedure.m in Sources */,
 			);
