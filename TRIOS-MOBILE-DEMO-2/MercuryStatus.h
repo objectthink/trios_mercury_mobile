@@ -11,7 +11,8 @@
 typedef enum
 {
    ProcedureStatus = 0x00020003,
-   DataFileStatus = 0x00020001
+   DataFileStatus = 0x00020001,
+   RealTimeSignalStatus = 0x00020002
 }
 MercuryStatusId;
 
