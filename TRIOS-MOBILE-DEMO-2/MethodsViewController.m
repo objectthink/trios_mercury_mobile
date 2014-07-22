@@ -335,7 +335,7 @@ withSequenceNumber:(uint)sequenceNumber
    
    if(subcommand == RealTimeSignalStatus)
    {
-      float signal = [_instrument floatAtOffset:8 inData:message];
+      float signal = [_instrument floatAtOffset:12 inData:message];
       
       _temperatureLabel.text = [NSString stringWithFormat:@"%f",signal];
    }

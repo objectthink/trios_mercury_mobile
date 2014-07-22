@@ -197,6 +197,13 @@ withSequenceNumber:(uint)sequenceNumber
       
       [self updateProcedureStatus];
    }
+   
+   if(subcommand == RealTimeSignalStatus)
+   {
+      float signal = [_instrument floatAtOffset:12 inData:message];
+      
+      _temperatureLabel.text = [NSString stringWithFormat:@"%f",signal];
+   }
 }
 
 /*
