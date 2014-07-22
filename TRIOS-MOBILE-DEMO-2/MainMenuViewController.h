@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MercuryInstrument.h"
 
-@interface MainMenuViewController : UIViewController
-
+@interface MainMenuViewController : MercuryViewControllerAdapter
 @end

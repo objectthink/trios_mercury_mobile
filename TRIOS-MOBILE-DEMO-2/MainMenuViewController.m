@@ -9,12 +9,23 @@
 #import "MainMenuViewController.h"
 #import "AppDelegate.h"
 #import "MercuryInstrument.h"
+#import "MercuryProcedure.h"
+#import "MercuryStatus.h"
 
 @interface MainMenuViewController ()
 
 @end
 
 @implementation MainMenuViewController
+{
+   MercuryInstrument* _instrument;
+   
+   MercuryGetProcedureResponse* _response;
+   MercuryProcedureStatus* _procedureStatus;
+   
+   IBOutlet UILabel *_procedureStatusLabel;
+   IBOutlet UILabel *_temperatureLabel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +42,6 @@
 
    UIBarButtonItem* space =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
    
    UIBarButtonItem* lid =
    [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
@@ -68,16 +78,21 @@
    
    AppDelegate* app = [[UIApplication sharedApplication] delegate];
    
-   MercuryInstrument* instrument = app.instrument;
+   _instrument = app.instrument;
 
+   [_instrument addDelegate:self];
+   
    NSString* accessString;
-   if(instrument.access == Master)
+   if(_instrument.access == Master)
       accessString = @"Master";
    else
       accessString = @"Viewer";
    
    self.title =
-   [[NSString alloc]initWithFormat:@"Trios Main Menu [%@] %@",instrument.host,accessString];
+   [[NSString alloc]initWithFormat:@"Trios Main Menu [%@] %@",_instrument.host,accessString];
+   
+   [_instrument sendCommand:[[MercuryGetProcedureStatusCommand alloc]init]];
+   [_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
 }
 
 -(void)noAction
@@ -87,6 +102,93 @@
 - (void)didReceiveMemoryWarning
 {
    [super didReceiveMemoryWarning];   // Dispose of any resources that can be recreated.
+}
+
+-(void)updateProcedureStatus
+{
+   NSString* runStatus;
+   switch (_procedureStatus.runStatus)
+   {
+      case Idle:
+         runStatus = @"Idle";
+         break;
+      case PostTest:
+         runStatus = @"PostTest";
+         break;
+      case PreTest:
+         runStatus = @"PreTest";
+         break;
+      case Test:
+         runStatus = @"Test";
+         break;
+      default:
+         runStatus = @"Unknown";
+         break;
+   }
+   
+   NSString* endStatus;
+   switch (_procedureStatus.endStatus)
+   {
+      case Complete:
+         endStatus = @"Complete";
+         break;
+      case Error:
+         endStatus = @"Error";
+         break;
+      case NotRun:
+         endStatus = @"NotRun";
+         break;
+      case Running:
+         endStatus = @"Running";
+         break;
+      case UserStopped:
+         endStatus = @"UserStopped";
+         break;
+      default:
+         endStatus = @"Unknown";
+         break;
+   }
+   
+   NSString* segmentName = @"None";
+   
+   if (_procedureStatus.currentSegmentId != -1 && _response != nil)
+   {
+      MercurySegment* currentSegment =
+      [[_response segments] objectAtIndex:_procedureStatus.currentSegmentId];
+      
+      segmentName = currentSegment.name;
+   }
+   
+   _procedureStatusLabel.text =
+   [NSString stringWithFormat:@"%@:%@:%@",
+    runStatus , endStatus, segmentName];
+   
+}
+
+#pragma mark - instrument delegate
+-(void)   response:(NSData*)message
+withSequenceNumber:(uint)sequenceNumber
+        subcommand:(uint)subcommand
+            status:(uint)status
+{
+   if (subcommand == MercuryGetProcedureCommandId)
+   {
+      _response =
+      [[MercuryGetProcedureResponse alloc]initWithMessage:message];
+      
+      [self updateProcedureStatus];
+   }
+}
+
+-(void)stat:(NSData*)message withSubcommand:(uint)subcommand
+{
+   if(subcommand == ProcedureStatus)
+   {
+      _procedureStatus =
+      [[MercuryProcedureStatus alloc] initWithMessage:message];
+      
+      [self updateProcedureStatus];
+   }
 }
 
 /*

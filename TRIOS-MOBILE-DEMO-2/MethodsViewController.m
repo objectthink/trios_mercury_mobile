@@ -20,6 +20,8 @@
    IBOutlet UITableView *_tableView;
    
    MercuryGetProcedureResponse* _response;
+   MercuryProcedureStatus* _procedureStatus;
+
    
    NSObject<MercuryDataFileVisualizer>* _dataFileVisualizer;
    NSObject<MercuryDataFileVisualizerEx>* _dataFileVisualizerEx;
@@ -31,6 +33,10 @@
 
    int _offset;
    int _selectedSignalIndex;
+   
+   IBOutlet UILabel *_procedureStatusLabel;
+   IBOutlet UILabel *_temperatureLabel;
+   IBOutlet UIButton *_chartButton;
 }
 
 #pragma mark - segue
@@ -119,7 +125,6 @@
 }
 
 #pragma mark - tableview
-
 -(NSInteger)tableView:tableView numberOfRowsInSection:(NSInteger)section
 {
    return [_response.segments count];
@@ -146,7 +151,7 @@
    cell.detailTextLabel.text = [[_response.segments objectAtIndex:indexPath.row] description];
    
    cell.textLabel.textColor = [UIColor whiteColor];
-   cell.detailTextLabel.textColor = [UIColor blueColor];
+   cell.detailTextLabel.textColor = [UIColor blackColor];
    
    return cell;
 }
@@ -169,7 +174,6 @@
 
    UIBarButtonItem* space =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-   
    
    UIBarButtonItem* lid =
    [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
@@ -210,6 +214,12 @@
    _instrument = [_app instrument];
    
    _selectedSignalIndex = 8;  //default for now until we allow the user to choose
+   
+   [_tableView setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2]];
+   
+   [_instrument sendCommand:[[MercuryGetProcedureStatusCommand alloc]init]];
+   [_instrument sendCommand:[[MercuryGetDataFileStatusCommand alloc]init]];
+   [_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -218,6 +228,7 @@
    
    [_instrument addDelegate:self];
    [_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
+   [_instrument sendCommand:[[MercuryGetProcedureStatusCommand alloc]init]];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -231,6 +242,72 @@
 {
 }
 
+-(void)updateProcedureStatus
+{
+   if (_procedureStatus.runStatus != Test)
+      _chartButton.enabled = NO;
+   else
+      _chartButton.enabled = YES;
+   
+   NSString* runStatus;
+   switch (_procedureStatus.runStatus)
+   {
+      case Idle:
+         runStatus = @"Idle";
+         break;
+      case PostTest:
+         runStatus = @"PostTest";
+         break;
+      case PreTest:
+         runStatus = @"PreTest";
+         break;
+      case Test:
+         runStatus = @"Test";
+         break;
+      default:
+         runStatus = @"Unknown";
+         break;
+   }
+   
+   NSString* endStatus;
+   switch (_procedureStatus.endStatus)
+   {
+      case Complete:
+         endStatus = @"Complete";
+         break;
+      case Error:
+         endStatus = @"Error";
+         break;
+      case NotRun:
+         endStatus = @"NotRun";
+         break;
+      case Running:
+         endStatus = @"Running";
+         break;
+      case UserStopped:
+         endStatus = @"UserStopped";
+         break;
+      default:
+         endStatus = @"Unknown";
+         break;
+   }
+   
+   NSString* segmentName = @"None";
+   
+   if (_procedureStatus.currentSegmentId != -1 && _response != nil)
+   {
+      MercurySegment* currentSegment =
+      [[_response segments] objectAtIndex:_procedureStatus.currentSegmentId];
+      
+      segmentName = currentSegment.name;
+   }
+   
+   _procedureStatusLabel.text =
+   [NSString stringWithFormat:@"%@:%@:%@",
+    runStatus , endStatus, segmentName];
+}
+
+#pragma mark - instrument delegate
 -(void)   response:(NSData*)message
 withSequenceNumber:(uint)sequenceNumber
         subcommand:(uint)subcommand
@@ -242,6 +319,43 @@ withSequenceNumber:(uint)sequenceNumber
       [[MercuryGetProcedureResponse alloc]initWithMessage:message];
       
       [_tableView reloadData];
+      [self updateProcedureStatus];
+   }
+}
+
+-(void)stat:(NSData*)message withSubcommand:(uint)subcommand
+{
+   if(subcommand == ProcedureStatus)
+   {
+      _procedureStatus =
+      [[MercuryProcedureStatus alloc] initWithMessage:message];
+      
+      [self updateProcedureStatus];
+   }
+   
+   if(subcommand == DataFileStatus)
+   {
+//      MercuryDataFileStatus* status =
+//      [[MercuryDataFileStatus alloc]initWithMessage:message];
+//      
+//      NSString* state;
+//      switch (status.state)
+//      {
+//         case Open:
+//            state = @"Open";
+//            break;
+//         case Closed:
+//            state = @"Closed";
+//            break;
+//         case DoesNotExist:
+//            state = @"DoesNotExist";
+//         default:
+//            state = @"Unkown";
+//            break;
+//      }
+//      
+//      self.DataFileStatusData.text =
+//      [NSString stringWithFormat:@"length: %d  state: %@", status.length, state];
    }
 }
 

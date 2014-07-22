@@ -81,7 +81,7 @@
     ];
    
    cell.textLabel.textColor = [UIColor whiteColor];
-   cell.detailTextLabel.textColor = [UIColor blueColor];
+   cell.detailTextLabel.textColor = [UIColor blackColor];
    
    return cell;
 }
@@ -154,6 +154,8 @@
    
    //get the current list of signals
    [_instrument sendCommand:[[MercuryGetRealTimeSignalsCommand alloc]init]];
+   
+   [_signalTableView setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2]];
 }
 
 -(void)stat:(NSData*)message withSubcommand:(uint)subcommand

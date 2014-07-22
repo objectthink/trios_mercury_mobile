@@ -86,7 +86,8 @@
 
 -(void)error:(NSError *)error
 {
-   [ProgressHUD showError:[error debugDescription]];
+   if (error != nil)
+      [ProgressHUD showError:[error debugDescription]];
 }
 
 -(void)onlineTapped:(ConnectPopoverViewController*)controller
@@ -214,6 +215,15 @@
       [[InstrumentInfo alloc]initWith:@"Mariner" serialNumber:@"110111" address:@"10.52.53.155"],
       [[InstrumentInfo alloc]initWith:@"Quicksilver" serialNumber:@"111111" address:@"10.52.53.156"]
    ];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+   if(_connected)
+   {
+      [_instrument disconnect];
+      _connected = NO;
+   }
 }
 
 - (void)didReceiveMemoryWarning

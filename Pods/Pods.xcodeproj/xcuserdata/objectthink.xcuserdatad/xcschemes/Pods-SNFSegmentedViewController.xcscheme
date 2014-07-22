@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B5DDCF00AEC473892F86285"
+               BlueprintIdentifier = "D04F66A11AF547BA85A28404"
                BuildableName = "libPods-SNFSegmentedViewController.a"
                BlueprintName = "Pods-SNFSegmentedViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
