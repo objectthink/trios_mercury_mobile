@@ -242,6 +242,7 @@
                     <navigationItem key="navigationItem" id="AXS-m7-KxN"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="_backgroundImageView" destination="sa5-2A-Ojk" id="8Zq-a6-zw6"/>
                         <outlet property="_signalTableView" destination="PxD-G7-Bzv" id="FCF-6X-WvH"/>
                     </connections>
                 </viewController>

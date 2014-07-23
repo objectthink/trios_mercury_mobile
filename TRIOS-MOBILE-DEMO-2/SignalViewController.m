@@ -26,6 +26,7 @@
    IBOutlet UITableView *_signalTableView;
    
    UIPopoverController* _signalChoiceListPopover;
+   IBOutlet UIImageView *_backgroundImageView;
 }
 
 - (IBAction)signalsButtonTapped:(id)sender
@@ -98,7 +99,8 @@
 
 -(void)noAction
 {
-   
+   [_backgroundImageView setImage:nil];
+   [_backgroundImageView setBackgroundColor:[UIColor grayColor]];
 }
 
 - (void)viewDidLoad
