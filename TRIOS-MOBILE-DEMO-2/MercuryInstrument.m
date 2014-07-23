@@ -22,6 +22,69 @@ withSequenceNumber:(uint)sequenceNumber
 -(void)ackWithSequenceNumber:(uint)sequencenumber {}
 -(void)nakWithSequenceNumber:(uint)sequencenumber andError:(uint)errorcode {}
 -(void)error:(NSError*)error {}
+
+-(void)noAction
+{
+}
+
+-(void)onColors
+{
+}
+
+-(void)onStart
+{
+}
+
+-(void)onStop
+{
+}
+
+-(void)viewDidLoad
+{
+   [super viewDidLoad];
+   
+   UIBarButtonItem* space =
+   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+   
+   UIBarButtonItem* lid =
+   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   
+   UIBarButtonItem* standby_temp =
+   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   
+   UIBarButtonItem* reset =
+   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   
+   UIBarButtonItem* play =
+   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onStart)];
+   
+   UIBarButtonItem* stop =
+   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(onStop)];
+   
+   UIBarButtonItem* open =
+   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(noAction)];
+   
+   UIBarButtonItem* colors =
+   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(onColors)];
+
+   [self.navigationController setToolbarHidden:NO];
+   [self setToolbarItems:[NSArray arrayWithObjects:
+                          play,
+                          space,
+                          stop,
+                          space,
+                          open,
+                          space,
+                          lid,
+                          space,
+                          standby_temp,
+                          space,
+                          reset,
+                          space,
+                          colors,
+                          nil]];
+
+}
 @end
 
 @implementation MercuryInstrumentItem : NSObject

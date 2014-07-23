@@ -27,6 +27,8 @@
    
    UIPopoverController* _signalChoiceListPopover;
    IBOutlet UIImageView *_backgroundImageView;
+   
+   BOOL _colors;
 }
 
 - (IBAction)signalsButtonTapped:(id)sender
@@ -97,52 +99,27 @@
    return self;
 }
 
--(void)noAction
+-(void)onColors
 {
-   [_backgroundImageView setImage:nil];
-   [_backgroundImageView setBackgroundColor:[UIColor grayColor]];
+   if (_colors == YES)
+   {
+      [_backgroundImageView setImage:nil];
+      [_backgroundImageView setBackgroundColor:[UIColor grayColor]];
+      _colors = NO;
+   }
+   else
+   {
+      [_backgroundImageView setImage:[UIImage imageNamed:@"BricoPack Wallpaper.bmp"]];
+      [_backgroundImageView setBackgroundColor:[UIColor clearColor]];
+      _colors = YES;
+   }
 }
 
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-
-   UIBarButtonItem* space =
-   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
    
-   
-   UIBarButtonItem* lid =
-   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
-   
-   UIBarButtonItem* standby_temp =
-   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
-   
-   UIBarButtonItem* reset =
-   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
-   
-   UIBarButtonItem* play =
-   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(noAction)];
-   
-   UIBarButtonItem* stop =
-   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(noAction)];
-   
-   UIBarButtonItem* open =
-   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(noAction)];
-   
-   [self.navigationController setToolbarHidden:NO];
-   [self setToolbarItems:[NSArray arrayWithObjects:
-                          play,
-                          space,
-                          stop,
-                          space,
-                          open,
-                          space,
-                          lid,
-                          space,
-                          standby_temp,
-                          space,
-                          reset,
-                          nil]];
+   _colors = true;
    
    self.title = @"Real Time Signals";
    

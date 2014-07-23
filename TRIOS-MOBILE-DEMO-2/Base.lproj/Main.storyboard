@@ -345,6 +345,7 @@
                     <navigationItem key="navigationItem" id="oK6-AU-6lf"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="_backgroundImageView" destination="zCh-5E-snV" id="BWi-Xa-tcz"/>
                         <outlet property="_chartButton" destination="mn7-PY-3HH" id="Jpw-va-XeG"/>
                         <outlet property="_procedureStatusLabel" destination="Mx2-sz-91Z" id="w4g-IY-epT"/>
                         <outlet property="_tableView" destination="YWI-Wd-mjR" id="XZP-Hu-hIj"/>
