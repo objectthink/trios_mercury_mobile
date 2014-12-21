@@ -78,6 +78,7 @@
    cell.textLabel.text =
    [procedure signalToString:[[_signalsList objectAtIndex:indexPath.row] intValue]];
    
+   if(_signals.count > 0)
    cell.detailTextLabel.text =
    [NSString stringWithFormat:@"%@",
     [_signals objectAtIndex:indexPath.row]
@@ -135,6 +136,20 @@
    [_instrument sendCommand:[[MercuryGetRealTimeSignalsCommand alloc]init]];
    
    [_signalTableView setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2]];
+   
+   [_signalsList addObject:[NSNumber numberWithInt:0]];
+   [_signalsList addObject:[NSNumber numberWithInt:1]];
+   [_signalsList addObject:[NSNumber numberWithInt:2]];
+   [_signalsList addObject:[NSNumber numberWithInt:3]];
+   [_signalsList addObject:[NSNumber numberWithInt:4]];
+   [_signalsList addObject:[NSNumber numberWithInt:5]];
+   [_signalsList addObject:[NSNumber numberWithInt:6]];
+   [_signalsList addObject:[NSNumber numberWithInt:7]];
+   [_signalsList addObject:[NSNumber numberWithInt:8]];
+   [_signalsList addObject:[NSNumber numberWithInt:9]];
+   [_signalsList addObject:[NSNumber numberWithInt:10]];
+   [_signalsList addObject:[NSNumber numberWithInt:11]];
+   [_signalsList addObject:[NSNumber numberWithInt:12]];
 }
 
 -(void)stat:(NSData*)message withSubcommand:(uint)subcommand

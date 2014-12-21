@@ -12,7 +12,8 @@
 typedef enum MercuryAccessType
 {
    Viewer = 1,
-   Master = 2
+   Master = 2,
+   Engineering = 1000
 } MercuryAccess;
 
 typedef enum
@@ -102,11 +103,12 @@ typedef enum
 
 @interface MercuryInstrument : NSObject <GCDAsyncSocketDelegate>
 {
-   GCDAsyncSocket* socket;
+   
 }
 
 @property (nonatomic) MercuryAccess access;
 @property (strong, nonatomic)NSString* host;
+@property (strong, nonatomic)GCDAsyncSocket* socket;
 
 -(instancetype)init;
 

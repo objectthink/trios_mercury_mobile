@@ -10,4 +10,4 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 45bdbbc1c0a5ed0640ff4c42af325ba43a2f099a
   SNFSegmentedViewController: f5c80f2d14afaf4f6ede5dc1c7114e54ce5a2fbf
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.35.0

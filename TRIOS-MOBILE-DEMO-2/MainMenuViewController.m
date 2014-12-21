@@ -44,13 +44,13 @@
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
    
    UIBarButtonItem* lid =
-   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
 
    UIBarButtonItem* standby_temp =
-   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
 
    UIBarButtonItem* reset =
-   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
 
    UIBarButtonItem* play =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(noAction)];

@@ -47,13 +47,13 @@ withSequenceNumber:(uint)sequenceNumber
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
    
    UIBarButtonItem* lid =
-   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Lid" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
    
    UIBarButtonItem* standby_temp =
-   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Standby Temp" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
    
    UIBarButtonItem* reset =
-   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStyleBordered target:self action:@selector(noAction)];
+   [[UIBarButtonItem alloc] initWithTitle:@"Reset A/S" style:UIBarButtonItemStylePlain target:self action:@selector(noAction)];
    
    UIBarButtonItem* play =
    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onStart)];
@@ -348,7 +348,7 @@ withSequenceNumber:(uint)sequenceNumber
 
 -(void)disconnect
 {
-   [socket disconnect];
+   [self.socket disconnect];
 }
 
 -(BOOL)connectToHost:(NSString*)host andPort:(uint16_t)port
@@ -359,10 +359,10 @@ withSequenceNumber:(uint)sequenceNumber
    
    dispatch_queue_t mainQueue = dispatch_get_main_queue();
 	
-	socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
+	self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
 	
 	NSError *error = nil;
-	if (![socket
+	if (![self.socket
          connectToHost:host
          onPort:port
          withTimeout:30
@@ -414,13 +414,13 @@ withSequenceNumber:(uint)sequenceNumber
       {'E', 'N', 'D', ' '}
    };
    
-   memcpy(LoginMessage.UserName, [username UTF8String], 64);
+   memcpy(LoginMessage.UserName   , [username UTF8String]   , 64);
    memcpy(LoginMessage.MachineName, [machineName UTF8String], 64);
    
    NSData*   e = [NSData dataWithBytes:&LoginMessage length:152];
    
-   [socket writeData:e withTimeout:(NSTimeInterval)30 tag:0];
-   [socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+   [self.socket writeData:e withTimeout:(NSTimeInterval)30 tag:7];
+   [self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
    
    return r;
 }
@@ -449,8 +449,8 @@ withSequenceNumber:(uint)sequenceNumber
    [message appendData:[command getBytes]];
    [message appendBytes:"END " length:4];
    
-   [socket writeData:message withTimeout:-1 tag:0];
-   [socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+   [self.socket writeData:message withTimeout:-1 tag:0];
+   [self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
 
    return _sequenceNumber;
 }

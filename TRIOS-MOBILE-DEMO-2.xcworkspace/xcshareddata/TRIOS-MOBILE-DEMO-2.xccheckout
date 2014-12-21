@@ -10,29 +10,29 @@
 	<string>TRIOS-MOBILE-DEMO-2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0B4F9F07-D70B-4EC8-9BF2-8F9661BA51D8</key>
+		<key>416AFA5EEFCDA23719EF903DD531CD5F4C11D7F8</key>
 		<string>https://github.com/objectthink/trios_mercury_mobile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TRIOS-MOBILE-DEMO-2.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0B4F9F07-D70B-4EC8-9BF2-8F9661BA51D8</key>
+		<key>416AFA5EEFCDA23719EF903DD531CD5F4C11D7F8</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/objectthink/trios_mercury_mobile.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0B4F9F07-D70B-4EC8-9BF2-8F9661BA51D8</string>
+	<string>416AFA5EEFCDA23719EF903DD531CD5F4C11D7F8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0B4F9F07-D70B-4EC8-9BF2-8F9661BA51D8</string>
+			<string>416AFA5EEFCDA23719EF903DD531CD5F4C11D7F8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TRIOS-MOBILE-DEMO-2</string>
 		</dict>
