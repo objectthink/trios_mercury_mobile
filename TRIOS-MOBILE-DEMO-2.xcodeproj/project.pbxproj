@@ -42,6 +42,7 @@
 		0124D405196F707C00A8D731 /* rsa.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124D3F3196F707C00A8D731 /* rsa.png */; };
 		0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D407196F7DC700A8D731 /* MainMenuViewController.m */; };
 		0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D419196F8C1C00A8D731 /* MethodsViewController.m */; };
+		013A356F1AE3F3D4003EDAAB /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013A356E1AE3F3D4003EDAAB /* ShinobiCharts.framework */; };
 		0170FB211971A0210077F2A7 /* SignalChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */; };
 		01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */; };
 		0192DA8B1970C99100A073F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8A1970C99100A073F0 /* home.png */; };
@@ -50,7 +51,6 @@
 		0192DA931970CA6200A073F0 /* as.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA921970CA6200A073F0 /* as.png */; };
 		0192DA951970CA8000A073F0 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA941970CA8000A073F0 /* info.png */; };
 		0192DA971970CABC00A073F0 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA961970CABC00A073F0 /* settings.png */; };
-		01DA3F0D1975DA30006ADFB7 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F0C1975DA30006ADFB7 /* ShinobiCharts.framework */; };
 		01DA3F0F1975DA3C006ADFB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F0E1975DA3C006ADFB7 /* QuartzCore.framework */; };
 		01DA3F111975DA49006ADFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F101975DA49006ADFB7 /* OpenGLES.framework */; };
 		01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DA3F121975DA5B006ADFB7 /* CoreText.framework */; };
@@ -121,6 +121,7 @@
 		0124D407196F7DC700A8D731 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		0124D418196F8C1C00A8D731 /* MethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodsViewController.h; sourceTree = "<group>"; };
 		0124D419196F8C1C00A8D731 /* MethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodsViewController.m; sourceTree = "<group>"; };
+		013A356E1AE3F3D4003EDAAB /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = ../../Desktop/desktop/ShinobiCharts/ShinobiCharts.framework; sourceTree = "<group>"; };
 		0170FB1F1971A0210077F2A7 /* SignalChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalChoiceViewController.h; sourceTree = "<group>"; };
 		0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalChoiceViewController.m; sourceTree = "<group>"; };
 		01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPopoverViewController.h; sourceTree = "<group>"; };
@@ -162,12 +163,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013A356F1AE3F3D4003EDAAB /* ShinobiCharts.framework in Frameworks */,
 				01DA3F1A19768717006ADFB7 /* Security.framework in Frameworks */,
 				01DA3F151975DA6B006ADFB7 /* libstdc++.dylib in Frameworks */,
 				01DA3F131975DA5B006ADFB7 /* CoreText.framework in Frameworks */,
 				01DA3F111975DA49006ADFB7 /* OpenGLES.framework in Frameworks */,
 				01DA3F0F1975DA3C006ADFB7 /* QuartzCore.framework in Frameworks */,
-				01DA3F0D1975DA30006ADFB7 /* ShinobiCharts.framework in Frameworks */,
 				0124D3A9196F67CF00A8D731 /* CoreGraphics.framework in Frameworks */,
 				0124D3AB196F67CF00A8D731 /* UIKit.framework in Frameworks */,
 				0124D3A7196F67CF00A8D731 /* Foundation.framework in Frameworks */,
@@ -211,6 +212,7 @@
 		0124D3A5196F67CF00A8D731 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				013A356E1AE3F3D4003EDAAB /* ShinobiCharts.framework */,
 				01DA3F1919768717006ADFB7 /* Security.framework */,
 				01DA3F141975DA6B006ADFB7 /* libstdc++.dylib */,
 				01DA3F121975DA5B006ADFB7 /* CoreText.framework */,
@@ -674,6 +676,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/seshelman/Desktop/desktop/ShinobiCharts,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Prefix.pch";
@@ -697,6 +700,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/seshelman/Desktop/desktop/ShinobiCharts,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRIOS-MOBILE-DEMO-2/TRIOS-MOBILE-DEMO-2-Prefix.pch";

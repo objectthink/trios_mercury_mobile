@@ -259,9 +259,9 @@ typedef enum DSCSignalIds
 
 typedef enum SegmentIds
 {
-   Isothermal  = 0x01030000,
-   Equilibrate = 0x01030001,
-   Ramp        = 0x01030002,
+   Isothermal  = 0x00030004,
+   Equilibrate = 0x00030005,
+   Ramp        = 0x00030006,
    Repeat      = 0x00030000,
    DataOn      = 0x00030001
    

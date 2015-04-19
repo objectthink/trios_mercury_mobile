@@ -409,13 +409,13 @@ withSequenceNumber:(uint)sequenceNumber
       {'L', 'O', 'G', 'N'},
       access,
       {127, 0, 0, 1},
-      "",
-      "",
+      "",//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+      "",//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
       {'E', 'N', 'D', ' '}
    };
    
-   memcpy(LoginMessage.UserName   , [username UTF8String]   , 64);
-   memcpy(LoginMessage.MachineName, [machineName UTF8String], 64);
+   memcpy(LoginMessage.UserName   , [username UTF8String]   , [username length]);
+   memcpy(LoginMessage.MachineName, [machineName UTF8String], [machineName length]);
    
    NSData*   e = [NSData dataWithBytes:&LoginMessage length:152];
    

@@ -210,7 +210,7 @@
    
    _instruments =
   @[
-      [[InstrumentInfo alloc]initWith:@"Dionysus"     serialNumber:@"010101" address:@"10.52.54.222"],
+      [[InstrumentInfo alloc]initWith:@"Dionysus"     serialNumber:@"010101" address:@"10.52.53.114"],
       [[InstrumentInfo alloc]initWith:@"Atlas"        serialNumber:@"011101" address:@"10.52.53.207"],
       [[InstrumentInfo alloc]initWith:@"Mariner"      serialNumber:@"110111" address:@"10.52.53.155"],
       [[InstrumentInfo alloc]initWith:@"Quicksilver"  serialNumber:@"111111" address:@"10.52.53.156"]
