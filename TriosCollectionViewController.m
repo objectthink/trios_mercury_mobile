@@ -11,6 +11,7 @@
 #import "ConnectPopoverViewController.h"
 #import "AppDelegate.h"
 #import "ProgressHUD.h"
+#import "MercuryBroadcastManager.h"
 
 @interface InstrumentInfo : NSObject
 @property (strong) NSString* name;
@@ -44,6 +45,8 @@
    MercuryInstrument* _instrument;
    
    BOOL _connected;
+   
+   MercuryBroadcastManager* _broadcastManager;
 }
 @end
 
@@ -207,6 +210,10 @@
    _instrument = app.instrument;
    
    [_instrument addDelegate:self];
+   
+   _broadcastManager = [[MercuryBroadcastManager alloc] init];
+   
+   [_broadcastManager start:^{ [ProgressHUD showError:@"broadcast received..."]; }];
    
    _instruments =
   @[

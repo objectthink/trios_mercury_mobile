@@ -58,7 +58,6 @@ typedef enum
 @end
 
 @interface MercuryResponse : MercuryInstrumentItem
-@property (strong, nonatomic) NSMutableData* bytes;
 @end
 
 @interface MercuryStartProcedureCommand : MercuryAction

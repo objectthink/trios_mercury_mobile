@@ -409,8 +409,8 @@ withSequenceNumber:(uint)sequenceNumber
       {'L', 'O', 'G', 'N'},
       access,
       {127, 0, 0, 1},
-      "",//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-      "",//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+      "",
+      "",
       {'E', 'N', 'D', ' '}
    };
    
@@ -498,14 +498,12 @@ withSequenceNumber:(uint)sequenceNumber
    
    [inputStream read:sync maxLength:4];     //SYNC
    [inputStream read:length maxLength:4];   //LENGTH
-   
    [inputStream read:type maxLength:4];     //STAT or
    
    [inputStream read:length2 maxLength:4];  //SUBCOMMAND ID
    [inputStream read:temp maxLength:4];
    [inputStream read:temp maxLength:4];
-   
-   uint subcommand = [self uintAtOffset:12 inData:data];
+
    
    NSString* typeAsString =
    [[NSString alloc] initWithBytes:type length:4 encoding:NSUTF8StringEncoding];
@@ -528,6 +526,8 @@ withSequenceNumber:(uint)sequenceNumber
       
       if ([typeAsString isEqualToString:@"STAT"])
       {
+         uint subcommand = [self uintAtOffset:12 inData:data];
+         
          for (id<MercuryInstrumentDelegate> d in delegates)
          {
             [d stat:message withSubcommand:subcommand];

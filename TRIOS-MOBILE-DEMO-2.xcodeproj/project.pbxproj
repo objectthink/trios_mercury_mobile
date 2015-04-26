@@ -43,6 +43,7 @@
 		0124D408196F7DC700A8D731 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D407196F7DC700A8D731 /* MainMenuViewController.m */; };
 		0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124D419196F8C1C00A8D731 /* MethodsViewController.m */; };
 		013A356F1AE3F3D4003EDAAB /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013A356E1AE3F3D4003EDAAB /* ShinobiCharts.framework */; };
+		013A35721AE44326003EDAAB /* MercuryBroadcastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 013A35711AE44326003EDAAB /* MercuryBroadcastManager.m */; };
 		0170FB211971A0210077F2A7 /* SignalChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */; };
 		01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01797E4A196FF1E4009331BC /* ConnectPopoverViewController.m */; };
 		0192DA8B1970C99100A073F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0192DA8A1970C99100A073F0 /* home.png */; };
@@ -122,6 +123,8 @@
 		0124D418196F8C1C00A8D731 /* MethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodsViewController.h; sourceTree = "<group>"; };
 		0124D419196F8C1C00A8D731 /* MethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodsViewController.m; sourceTree = "<group>"; };
 		013A356E1AE3F3D4003EDAAB /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = ../../Desktop/desktop/ShinobiCharts/ShinobiCharts.framework; sourceTree = "<group>"; };
+		013A35701AE442A7003EDAAB /* MercuryBroadcastManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MercuryBroadcastManager.h; sourceTree = "<group>"; };
+		013A35711AE44326003EDAAB /* MercuryBroadcastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryBroadcastManager.m; sourceTree = "<group>"; };
 		0170FB1F1971A0210077F2A7 /* SignalChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalChoiceViewController.h; sourceTree = "<group>"; };
 		0170FB201971A0210077F2A7 /* SignalChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalChoiceViewController.m; sourceTree = "<group>"; };
 		01797E49196FF1E4009331BC /* ConnectPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPopoverViewController.h; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				7302F38419717F9B00D90E11 /* MercuryInstrument.m */,
 				7302F3861971804A00D90E11 /* MercuryProcedure.h */,
 				7302F3871971804A00D90E11 /* MercuryProcedure.m */,
+				013A35701AE442A7003EDAAB /* MercuryBroadcastManager.h */,
+				013A35711AE44326003EDAAB /* MercuryBroadcastManager.m */,
 			);
 			name = Mercury;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				01DA3F1F19768848006ADFB7 /* MercuryStatus.m in Sources */,
 				0124D3E0196F6D4F00A8D731 /* TriosCollectionViewController.m in Sources */,
 				0124D41A196F8C1C00A8D731 /* MethodsViewController.m in Sources */,
+				013A35721AE44326003EDAAB /* MercuryBroadcastManager.m in Sources */,
 				01797E4B196FF1E4009331BC /* ConnectPopoverViewController.m in Sources */,
 				0124D3B3196F67CF00A8D731 /* main.m in Sources */,
 				7302F38519717F9B00D90E11 /* MercuryInstrument.m in Sources */,
