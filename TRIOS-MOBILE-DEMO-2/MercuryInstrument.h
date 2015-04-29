@@ -29,6 +29,7 @@ typedef enum
 @interface MercuryInstrumentItem : NSObject <NSCopying>
 {
 }
+
 @property (strong, nonatomic) NSMutableData* bytes;
 
 -(float)floatAtOffset:(NSUInteger)offset inData:(NSData*)data;
@@ -115,6 +116,9 @@ typedef enum
 -(void)disconnect;
 
 -(uint)sendCommand:(MercuryCommand*)command;
+-(MercuryResponse*)sendCommandNew:(MercuryCommand*)sendCommand;
+
+-(void)sendCommand:(MercuryCommand*)command onCompletion:(void (^)(MercuryResponse*))completionBlock;
 
 -(BOOL)
    loginWithUsername:(NSString*)username

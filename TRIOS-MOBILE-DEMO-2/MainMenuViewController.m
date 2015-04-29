@@ -92,7 +92,13 @@
    [[NSString alloc]initWithFormat:@"Trios Main Menu [%@] %@",_instrument.host,accessString];
    
    [_instrument sendCommand:[[MercuryGetProcedureStatusCommand alloc]init]];
-   [_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
+   //[_instrument sendCommand:[[MercuryGetProcedureCommand alloc]init]];
+   
+   [_instrument sendCommand:[[MercuryGetProcedureCommand alloc] init]
+               onCompletion:^(MercuryResponse * response)
+               {
+                  NSLog(@"get procedure called!");
+               }];
 }
 
 -(void)noAction

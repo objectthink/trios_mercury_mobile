@@ -9,6 +9,73 @@
 #import "MercuryInstrument.h"
 #import "MercuryProcedure.h"
 
+@interface WaitEvent : NSObject <NSCopying>
+{
+   NSCondition *_condition;
+   bool _signaled;
+}
+
+- (id)initSignaled:(BOOL)signaled;
+- (void)waitForSignal;
+- (void)signal;
+
+@end
+
+@implementation WaitEvent
+
+- (id)initSignaled:(BOOL)signaled
+{
+   if (self = ([super init]))
+   {
+      _condition = [[NSCondition alloc] init];
+      _signaled = signaled;
+   }
+   
+   return self;
+}
+
+-(id)initWith:(NSCondition*)condition andSignaled:(BOOL)signaled
+{
+   if (self = ([super init]))
+   {
+      _condition = condition;
+      _signaled = signaled;
+   }
+   
+   return self;
+}
+
+- (void)waitForSignal
+{
+   [_condition lock];
+   
+   while (!_signaled)
+   {
+      [_condition wait];
+   }
+   
+   [_condition unlock];
+}
+
+- (void)signal
+{
+   [_condition lock];
+   
+   _signaled = YES;
+   
+   [_condition signal];
+   [_condition unlock];
+}
+
+-(instancetype)copyWithZone:(NSZone *)zone
+{
+   //WaitEvent* event = [[WaitEvent alloc] initWith:_condition andSignaled:_signaled];
+   
+   return self;
+}
+
+@end
+
 @implementation MercuryViewControllerAdapter
 -(void)connected {}
 -(void)accept:(MercuryAccess)access {}
@@ -153,7 +220,6 @@ withSequenceNumber:(uint)sequenceNumber
 {
    if(self = [super init])
    {
-      //self.bytes = [[NSMutableData alloc] init];
    }
    return self;
 }
@@ -176,6 +242,17 @@ withSequenceNumber:(uint)sequenceNumber
 @end
 
 @implementation MercuryResponse
+-(instancetype)copyWithZone:(NSZone *)zone
+{
+   //this should never be called
+//   @throw
+//   [NSException
+//    exceptionWithName:@"Abstract"
+//    reason:@"copy called from MercuryInstrumentItem"
+//    userInfo:nil];
+   
+   return self;
+}
 @end
 
 @implementation MercuryStartProcedureCommand
@@ -267,6 +344,7 @@ withSequenceNumber:(uint)sequenceNumber
    uint _sequenceNumber;
    
    NSDictionary* _signalToString;
+   NSMutableDictionary* _commandsInProgress;
 }
 
 -(instancetype)init
@@ -306,6 +384,8 @@ withSequenceNumber:(uint)sequenceNumber
         };
       
       delegates = [[NSMutableArray alloc]init];
+      
+      _commandsInProgress = [[NSMutableDictionary alloc] init];
    }
    
    return self;
@@ -357,7 +437,8 @@ withSequenceNumber:(uint)sequenceNumber
 
    _sequenceNumber = 0;
    
-   dispatch_queue_t mainQueue = dispatch_get_main_queue();
+   //dispatch_queue_t mainQueue = dispatch_get_main_queue();
+   dispatch_queue_t mainQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	
 	self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
 	
@@ -449,10 +530,79 @@ withSequenceNumber:(uint)sequenceNumber
    [message appendData:[command getBytes]];
    [message appendBytes:"END " length:4];
    
+   if(type == get)
+   {
+      WaitEvent* event = [[WaitEvent alloc] initSignaled:NO];
+
+      dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+      dispatch_sync(queue,
+      ^{
+
+         [_commandsInProgress
+          setObject:@{
+                      [[MercuryResponse alloc] init]:@"Response",
+                      event:@"Event"
+                      }
+          
+          forKey:[NSNumber numberWithInt:_sequenceNumber]];
+         
+         [self.socket writeData:message withTimeout:-1 tag:0];
+         [self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+
+         [event waitForSignal];
+         
+//         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+//         ^{
+//            [self.socket writeData:message withTimeout:-1 tag:0];
+//            [self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+//         });
+         
+      });
+   }
+   else
+   {
+      [self.socket writeData:message withTimeout:-1 tag:0];
+      //[self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+   }
+   
+   return _sequenceNumber;
+}
+
+-(MercuryResponse*)sendCommandNew:(MercuryCommand*)command
+{
+   _sequenceNumber++;
+   
+   NSMutableData* message = [[NSMutableData alloc]init];
+   
+   uint length = (uint)[[command getBytes] length];   //(uint)[command.bytes length];
+   
+   uint action = 0x4E544341;
+   uint get = 0x20544547;
+   uint type = get;
+   
+   if([command isKindOfClass:[MercuryAction class]])
+      type = action;
+   
+   length += 8;
+   
+   [message appendBytes:"SYNC" length:4];
+   [message appendBytes:&length length:4];
+   [message appendBytes:&type length:4];
+   [message appendBytes:&_sequenceNumber length:4];
+   [message appendData:[command getBytes]];
+   [message appendBytes:"END " length:4];
+   
    [self.socket writeData:message withTimeout:-1 tag:0];
    [self.socket readDataToData:[NSData dataWithBytes:"END " length:4] withTimeout:-1 tag:0];
+   
+   return [[MercuryResponse alloc] init];
+}
 
-   return _sequenceNumber;
+-(void)sendCommand:(MercuryCommand*)command onCompletion:(void (^)(MercuryResponse*))completionBlock
+{
+   [self sendCommand:command];
+   
+   completionBlock([[MercuryResponse alloc] init]);
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
@@ -509,7 +659,7 @@ withSequenceNumber:(uint)sequenceNumber
    [[NSString alloc] initWithBytes:type length:4 encoding:NSUTF8StringEncoding];
    
    uint datalength = [self uintAtOffset:4 inData:data];
-   
+
    //////////////////////////////
    NSData* message = [NSData dataWithBytes:[data bytes]+12 length:[self uintAtOffset:4 inData:data]];
    if([delegates count] > 0)
@@ -536,9 +686,18 @@ withSequenceNumber:(uint)sequenceNumber
       
       if([typeAsString isEqualToString:@"ACK "])
       {
+         uint sequenceNumber = [self uintAtOffset:12 inData:data];
+//         
+//         NSDictionary* response = [_commandsInProgress objectForKey:[NSNumber numberWithInt:sequenceNumber]];
+//         if(response != nil)
+//         {
+//            WaitEvent* event = [response objectForKey:@"Event"];
+//            [event signal];
+//         }
+
          for (id<MercuryInstrumentDelegate> delegate in delegates)
          {
-            [delegate ackWithSequenceNumber:[self uintAtOffset:12 inData:data]];
+            [delegate ackWithSequenceNumber:sequenceNumber];
          }
       }
       
@@ -557,11 +716,22 @@ withSequenceNumber:(uint)sequenceNumber
       {
          //             |          4            8            12            16
          //     4     8            12           16           20            24
-         //SYNC/LENGTH  //RESPONSE | Sequence # | Subcommand | Status Code |<Data>
+         //SYNC/LENGTH  //RESPONSE | Sequence # | Subcommand | Status Code |<Data>`
 
          uint sequenceNumber  = [self uintAtOffset:12 inData:data];
          uint subcommand      = [self uintAtOffset:16 inData:data];
          uint status          = [self uintAtOffset:20 inData:data];
+         
+         NSDictionary* response = [_commandsInProgress objectForKey:[NSNumber numberWithInt:sequenceNumber]];
+         if(response != nil)
+         {
+            WaitEvent* event = [response objectForKey:@"Event"];
+            
+            [_commandsInProgress removeObjectForKey:[NSNumber numberWithInt:sequenceNumber]];
+            
+            [event signal];
+         }
+
          
          if( (datalength - 16) > 0)
             message = [NSData dataWithBytes:[data bytes]+24 length:datalength - 16];
